@@ -1,0 +1,763 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」02_CSSとは？ | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」02_CSSとは？</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>授業について（科目のねらい、到達目標、評価の観点）</li>
+          <li>HTMLとは？（言葉の意味、誕生の歴史・目的）</li>
+          <li>覚える用語（開始タグ、終了タグ、要素、属性、属性名、属性値）</li>
+          <li>基本的なタグ（h1～h6、p、ul 、ol、li、br、a、img）</li>
+          <li>HTML基本構造（html、body、head、文字コード、title）</li>
+          <li>DOCTYPE宣言</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">1-1. 課題の確認</h3>
+        <div class="item">
+          <dl>
+            <dt>【li要素の使い方】</dt>
+            <dd>
+              <ul>
+                <li><a href="assets/02/kadai/17_naito.html" target="_blank">17_naito</a></li>
+                <li><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/li">li - MDN -</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【画像をタグで囲むか問題】</dt>
+            <dd>
+              <ul>
+                <li><a href="assets/02/kadai/13_suzuki.html" target="_blank">13_suzuki</a></li>
+                <li><a href="https://qiita.com/125Dal/items/a1e3e463fb8202db9365">imgはpで囲う論争についての一考察</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【見出しレベルの決め方について】</dt>
+            <dd>
+              <ul>
+                <li><a href="assets/02/kadai/08_ogata.html" target="_blank">08_ogata</a></li>
+                <li><a href="assets/02/kadai/04_ishii.html" target="_blank">04_ishii</a></li>
+                <li><a href="assets/02/kadai/23_miyazawa.html" target="_blank">23_miyazawa</a></li>
+              </ul>
+            </dd>
+          </dl>
+          <p><a href="http://luululu.com/paper/2012/C1-1.pdf" target="_blank">論文のために作られたのだから、論文で考えるべし</a></p>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-2. 振り返しシートの記入</h3>
+        <div class="item">
+          <dl>
+            <dt>【シートの共有】</dt>
+            <dd>
+              <ol>
+                <li><a href="https://docs.google.com/document/d/1Jix6V0LIk3TpU1zb2ykgwJ_HYAuMPyXC4fkptdC2KT4/edit?usp=sharing">00高木_HTML5基礎振り返りシート</a>を開く</li>
+                <li>自分のGoogleアカウントでログインしていることを確認し、「ファイル」-「コピーを作成」</li>
+                <li>ファイル名を、自分の出席番号・苗字に変更して「OK」</li>
+                <li>右上の「共有」ボタンをクリック</li>
+                <li>「名前かメールアドレスを入力…」の欄に、<em>「takagi.trident@gmail.com」</em>と入力し「送信」をクリック
+                  <img src="../basic/assets/images/typing03.png" alt="" width="400">
+                </li>
+                <li>左上の「ドキュメントホーム」をクリックし、ファイル一覧に移動する</li>
+                <li>最初に開いた「00高木_HTML5基礎振り返りシート」は邪魔なので、右側のメニューから削除しておく</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【シートの記入】</dt>
+            <dd>
+              <ol>
+                <li>表紙の下部に、クラス名「WF1」、出席番号、氏名を入力</li>
+                <li>「授業内容」の中で、理解できた項目について赤文字を黒文字に変更する</li>
+                <li>「身についたと思うこと、気づいたこと、気をつけたいこと」を、できる限り詳細に記入する</li>
+                <li>自動的に保存されるので、保存できたら閉じる</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-3. タイピング測定</h3>
+        <p><a href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html">日本語編</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. CSSとは？</h2>
+      <section class="clause">
+        <h3 class="clause__title">2-1. Cascading Style Sheets</h3>
+        <div class="item">
+          <dl>
+            <dt>【Cascading（カスケーディング）】</dt>
+            <dd>cascade（カスケード）の現在分詞。（今まさに〜している、〜している状態にある）<br>
+              cascade（カスケード）とは、何段も連なった小さな滝のこと。転じて、同じものがいくつも数珠つなぎに連結された構造や、連鎖的あるいは段階的に物事が生じる様子を表す。<br>
+              CSSで使われるcascade（カスケード）の場合、ある要素の見た目を決定する際に、上流で適用された見た目を引き継ぎ、競合する場合は上書きしながら、段階的に設定していくことを意味する。
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【Style Sheet（スタイルシート）】</dt>
+            <dd>スタイルシート (style sheet) とは、構造化文書（例えばHTML）などにおける表示形式を制御する仕組み。見た目と構造を分離するという目的で提唱された。</dd>
+            <dd>※CSSの場合、一つの文書に複数のスタイルシートを使用することが多いので「sheets」と複数形になっていると高木は予想している。</dd>
+          </dl>
+        </div>
+        <p>まとめると、<br>CSSとは<strong>「構造化文書の構造とは分離した形で、見た目を段階的に設定していく仕組み」</strong></p>
+        <p>すなわち、構造を設定する言語が<em>「HTML」</em>、見た目を設定する言語が<em>「CSS」</em></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-2. CSSの歴史</h3>
+        <ul class="clause__list">
+          <li>1994年、WWW生誕の地であるCERNに勤務するホーコン・ウィウム・リーにより提唱される</li>
+          <li>1996年12月、Cascading Style Sheets, level 1 (CSS1), 勧告</li>
+          <li>1998年5月、Cascading Style Sheets, level 2 (CSS2), 勧告</li>
+          <li>2011年6月、Cascading Style Sheets, level 2 revision 1 (CSS2.1), 勧告</li>
+          <li>現在、「CSS3」を策定中</li>
+        </ul>
+        <dl>
+          <dt>【W3C勧告とは？】</dt>
+          <dd>W3Cが作成する技術文書にはその成熟までにいくつかの段階があり、技術に関するテストやレビュー、仕様変更を重ね、長い時間をかけて文書の内容を改良している。その流れの中での最後の段階で「仕様が完全に決まり、規格文書が公式に発表される状態」のことを勧告という。</dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-3. なぜ「構造」と「見た目」を分ける？</h3>
+        <p>構造化文書の利点は、<em>「内容を様々な状況で再利用でき、様々な方法で表示可能」</em>であること。同じ構造化文書に異なるスタイルシートを付与することで、異なる表示が得られる。</p>
+        <ul class="clause__list">
+          <li>昔のブラウザ（論文のみを表示するもの）から、最新のブラウザ（ゲーム機や冷蔵庫、時計に搭載されたもの）まで、ページの情報を表示することができる。</li>
+          <li>目が不自由な方も、音声ブラウザでページの内容を構造に沿って読み上げることで、情報を取得することができる</li>
+          <li>Google検索は「HTML」の構造と内容だけを読み込むことで、検索順位を素早く決めることができる</li>
+          <li>FacebookやTwitterでページをシェアした際に、タイムラインに合った形で情報を表示することができる</li>
+        </ul>
+        <p>つまり、CSSを完璧に理解してデザインどおりに見た目を再現できても、構造がしっかりと設定されていなければ、いつかどこかで情報を伝えることができなくなる可能性がある。（構造化大事！）</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. 準備</h2>
+      <section class="clause">
+        <h3 class="clause__title">3-1. HTMLファイルの準備</h3>
+        <ol>
+          <li>「Visual Studio Code」を立ち上げる</li>
+          <li>メニュー「File」-「New File」で新規ファイルを作成する</li>
+          <li>メニュー「File」-「Save」で忘れないうちに保存しておく（新規フォルダを作り、ファイル名「<em>index.html</em>」で保存）</li>
+          <li>保存したファイルをブラウザで開いておく（ファイルをダブルクリック、もしくはブラウザの上にドラッグ）</li>
+        </ol>
+        <ul class="notes">
+          <li>※ネット上に公開するファイルは、<em>すべてアルファベットで保存する</em>こと。（文字化けや読み込みエラーの原因になる）</li>
+          <li>※新規ファイルの作成は「control+ n」、保存は「control + s」、ブラウザの再読み込みは「control + r」。（Macの場合は、「control」ではなく「command」）</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-2. HTMLの基本構造（復習）</h3>
+        <p>★何も見ないで書いてみよう。</p>
+        <dl>
+          <dt>【途中までのコード】</dt>
+          <dd>
+            <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;/html&gt;</code></pre>
+          </dd>
+          <!-- <dd>
+            <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+              &lt;html&gt;
+                &lt;head&gt;
+                  &lt;meta charset="UTF-8"&gt;
+                  &lt;title&gt;CSSとは？&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;p&gt;本文です。&lt;/p&gt;
+                &lt;/body&gt;
+              &lt;/html&gt;</code></pre>
+          </dd> -->
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-3. 「Visual Studio Code」の設定</h3>
+        <div class="item">
+          <dl>
+            <dt>【拡張機能を使って日本語化】</dt>
+            <dd>
+              <ol>
+                <li>左メニュー一番下のアイコンをクリックし、検索欄に「japan」と入力</li>
+                <li>候補に出てくる「Japanese Language Pack for Visual Studio Code」の右下にある「Install」をクリック
+                  <img src="assets/02/vscode01.png" alt="">
+                </li>
+                <li>画面右下に再起動のメッセージが表示されたら「Restart Now」をクリック（出ない場合は手動で再起動）
+                  <img src="assets/02/vscode02.png" alt="">
+                </li>
+              </ol>
+            </dd>
+          </dl>
+          <p>※「Visual Studio Code」には便利な拡張機能がたくさんあるので、随時紹介していきます。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【各種設定】</dt>
+            <dd>
+              <p>「Visual Studio Code」は設定画面で様々な項目を設定できるが、今回は「JSONファイル」を使って一括設定する</p>
+              <ol>
+                <li>画面上にあるツールバーから『 ファイル > 基本設定 > 設定 』（Macの場合は『 Code > 基本設定 > 設定 』）の順に選択し、設定画面を表示</li>
+                <li>右上の「設定」アイコンをクリック
+                  <img src="assets/02/vscode03.png" alt="">
+                </li>
+                <li>「settings.json」が開くので、以下の内容をコピペして「保存」
+                  <pre class="line-numbers"><code class="language-json">{
+  "editor.wordWrap": "on", // エディターの幅で折り返し
+  "editor.formatOnSave": true, // ファイル保存時に自動でフォーマット
+  "editor.formatOnType": true, // 入力した行を自動でフォーマット
+  "editor.formatOnPaste": true, // ペースト時に自動でフォーマット
+  "editor.renderWhitespace": "all", // 半角スペースを常に表示
+  "editor.renderLineHighlight": "all", // 選択行を行番号含めすべてハイライト
+  "files.trimFinalNewlines": true, // ファイルの保存時に最終行以降をトリミング
+  "files.trimTrailingWhitespace": true, // ファイルの保存時に行末の空白をトリミング
+}</code></pre>
+                </li>
+              </ol>
+            </dd>
+          </dl>
+          <p>※他にも設定項目はたくさんあるので、慣れてきたら自分で調べてください。</p>
+        </div>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. CSSの基本構造</h2>
+      <div class="clause">
+        <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;CSSとは？&lt;/title&gt;
+    &lt;!-- 追加 --&gt;
+    &lt;style&gt;
+    p { color : red; }
+    &lt;/style&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;本文です。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </p>
+        <ul>
+          <li><img src="assets/02/css01.png" alt=""></li>
+          <li><img src="assets/02/css02.png" alt=""></li>
+        </ul>
+        <ul class="clause__list">
+          <li>"{" から "}" までの部分を<em>「宣言ブロック」</em>という。</li>
+          <li>"p" を<em>「セレクタ（選択子）」</em>といい、スタイルが適用される対象をしめす。</li>
+          <li>"color : red" 部分を<em>「宣言」</em>という。</li>
+          <li>宣言の内、":" より前（上例では "color"）を<em>「プロパティ（特性）」</em>という。</li>
+          <li>宣言の内、":" より後（上例では "red"）を<em>「値」</em>という。</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">4-1. どのようなプロパティがあるのか？</h3>
+        <p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference">CSSリファレンス - MDN</a></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-2. CSSの文法</h3>
+        <ul class="clause__list">
+          <li>プロパティ、":"、値の前後には空白文字（スペース、タブ、改行など）を自由に入れることができる。</li>
+          <li>大文字小文字は区別されないが、基本的にはすべて小文字で。</li>
+          <li>";"で区切ることにより、複数の宣言を書くことができる。</li>
+        </ul>
+        <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;style&gt;
+p {
+  color : red;
+  background-color : green;
+}
+&lt;/style&gt;</code></pre>
+        </p>
+        <p>※半角スペースや改行、タブを入れることで自分なりに見やすくすること。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-3. CSSの記述場所</h3>
+        <p>CSSの記述場所は以下の3種類。</p>
+        <div class="item">
+          <dl>
+            <dt>【style属性】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;CSSとは？&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p style="color:red; background-color:green;"&gt;本文です。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </dd>
+          </dl>
+          <p>htmlとcssが同一文書に混在し「構造化文書の構造とは分離した形」というCSSの概念に反しているので、基本的には使わない。（JavaScriptで使うことになる）</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【style要素】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;CSSとは？&lt;/title&gt;
+    &lt;style&gt;
+    p {
+      color : red;
+      background-color : green;
+    }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;本文です。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </dd>
+          </dl>
+          <p>これもhtmlとcssが混在してしまうため、実務では基本的には使わない。（授業では簡略化のため使用する場合がある）</p>
+        </div>
+        <p>そして残り一つは、「外部ファイルを読み込む」方法。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. 外部ファイルの読み込み</h2>
+      <div class="clause">
+        <p>現在公開されているほとんどのWebサイトは「外部CSSファイル」を読み込ませて、見た目を設定している。</p>
+        <div class="item">
+          <dl>
+            <dt>【外部ファイル化のメリット】</dt>
+            <dd>
+              <ul>
+                <li>構造と見た目を分離できる。</li>
+                <li>1つのCSSファイルを複数のHTMLに読み込むことができる。</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【外部ファイルの準備】</dt>
+            <dd>
+              <ol>
+                <li>メニュー「File」-「New File」で新規ファイルを作成する</li>
+                <li>ファイル名を「style.css」にし、「index.html」と同じ場所に保存</li>
+                <li>以下のCSSを書く
+                  <pre class="line-numbers"><code class="language-css">/* 文字コードの設定 */
+@charset "UTF-8";
+
+p {
+  color : red;
+  background-color : green;
+}</code></pre>
+                </li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【コメントアウトの書き方】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">/* CSSのコメントアウト */
+
+/*
+複数行にわたっても大丈夫
+ほとんどのプログラミング言語がこの形
+*/
+
+&lt;!-- HTMLのコメントアウトだけ特殊 --&gt;
+</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【link要素（HTMLとCSSを紐づけ）】</dt>
+            <dd>現在の文書と外部のリソースとの関係を指定する。<br>
+              一般的に、「rel（relationship）属性」で関係性、「href（hypertext reference）属性」でリソースの場所を設定する。</dd>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;CSSとは？&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;本文です。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Link_types">「rel属性」の値一覧</a></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. 絶対パスと相対パス</h2>
+      <div class="clause">
+        <p>「href属性」や「src属性」などサイトやファイルを指定する際に、その場所までの道筋を記述したものを<em>「パス」</em>といい、たどり着くまでのアプローチ方法として<em>「絶対パス」</em>と<em>「相対パス」</em>の2種類がある。</p>
+        <p>※「画像が表示されない」や「CSSが反映されない」原因のほとんどが<em>「パスの指定間違い」</em>であるため、しっかり理解すること！</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">6-1. 絶対パス</h3>
+        <p>http://から始まるアドレス（URL)を使ってファイルの場所を指定すること。どこから見てもアクセスできる。
+          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;CSSとは？&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://trident.takagino.net/doc2020/assets/css/common.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;本文です。&lt;/p&gt;
+    &lt;a href="https://computer.trident.ac.jp/"&gt;トライデントコンピュータ専門学校&lt;/a&gt;
+    &lt;img src="https://computer.trident.ac.jp/news/topics/images/10754da50c9587e6cbb770ebf2b170b5e0af3f14.JPG"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </p>
+        <p>しかし、インターネット上にファイルがアップされていないとURLは存在しない、また、後で変更される可能性も高いため、自分で用意する画像やファイルは「絶対パス」で指定しないほうが無難。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">6-2. 相対パス</h3>
+        <p>基準となるファイルから見て、読み込ませたいファイルの場所を指定すること。</p>
+        <dl>
+          <dt>【パスの記述方法】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>同じ階層内にあるファイルを参照する場合は、<em>「./ファイル名」</em>（「./」は省略可能）
+                <img src="assets/02/path01.png" alt="">
+              </li>
+              <li>同じ階層内にあるフォルダの中のファイルを参照する場合は、<em>「./フォルダ名/ファイル名」</em>（「./」は省略可能）
+                <img src="assets/02/path02.png" alt="">
+              </li>
+              <li>一つ上の階層内にあるフォルダ・ファイルを参照する場合は、<em>「../フォルダ名/ファイル名」</em>
+                <img src="assets/02/path03.png" alt="">
+              </li>
+              <li>二つ上の階層内にあるフォルダ・ファイルを参照する場合は、<em>「../../フォルダ名/ファイル名」</em>
+                <img src="assets/02/path04.png" alt="">
+              </li>
+            </ul>
+          </dd>
+        </dl>
+        <p>★フォルダ名「css」で新規フォルダを作り、style.cssを移動させてみよう。</p>
+        <p>※エディターでファイルを開いたまま「移動・削除・名前の変更」等をすると、意図しない動作をすることがあるので、一度閉じて再度開き直すと良い。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">7. 配色関連のプロパティ</h2>
+      <div class="clause">
+        <p>たくさんあるプロパティの中で、最初に覚えるべきは「配色関連」のプロパティ。</p>
+        <dl>
+          <dt>【color】</dt>
+          <dd>テキストやテキスト装飾の色の値を設定する</dd>
+        </dl>
+        <dl>
+          <dt>【background-color】</dt>
+          <dd>背景色を設定する</dd>
+        </dl>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">7-1. 色の指定方法</h3>
+        <div class="item">
+          <dl>
+            <dt>【カラーネームで設定する】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">p {
+  color : red;
+  background-color : green;
+}</code></pre>
+            </dd>
+          </dl>
+          <p>ブラウザによっては使用出来ないものもあり、覚えるのも面倒くさいので普通は使わない。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【RGB値で設定する】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">p {
+  color : rgb(255, 0, 0);
+
+  /*
+  color : rgb(red[赤], green[緑], blue[青]);
+  値の範囲はそれぞれ [0〜255]
+  */
+
+  background-color : rgba(0, 255, 0, 0.5);
+
+  /*
+  background-color : rgba(red[赤], green[緑], blue[青], alpha[透明度]);
+  透明度の範囲 [0（完全に透明） 〜 1（完全に不透明）]
+  */
+}</code></pre>
+            </dd>
+            <dd>★値を変化させて、どんな色になるか見てみよう。</dd>
+          </dl>
+          <p>文字色にはあまり使われないが、背景色を透明にしたい場合に使われることが多い。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【HSL値で設定する】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">p {
+  color : hsl(30, 100%, 50%);
+
+  /*
+  color : hsl(hue[色相], saturation[彩度], lightness[輝度]);
+  値の範囲は、
+  色相 [0〜360]
+  彩度 [0%（灰色） 〜 100%（純色）]
+  輝度（きど） [0%（黒） 〜 100%（白）]　※50%で純色
+  */
+
+  background-color : hsla(30, 100%, 50%, 0.5);
+}</code></pre>
+            </dd>
+            <dd><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F112405%2F0357edb9-ad29-e738-647b-42a1b21caf23.jpeg?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&w=1400&fit=max&s=d6d18bae7ec162a129605271471415a1" alt=""></dd>
+            <dd>★値を変化させて、どんな色になるか見てみよう。</dd>
+          </dl>
+          <p>私はあまり使ったことがないが、便利な場面はありそう。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【HEXコード（16進数カラーコード）で設定する】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">p {
+  color : #ff0000;
+  background-color : #00ff00;
+}</code></pre>
+            </dd>
+            <dd><img src="assets/02/hex.png" alt=""></dd>
+            <ul class="clause__list">
+              <li>白）#ffffff　=　rgb(255, 255, 255)</li>
+              <li>黒）#000000　=　rgb(0, 0, 0)</li>
+              <li>赤）#ff0000　=　rgb(255, 0, 0)</li>
+            </ul>
+          </dl>
+          <p>通常はこの「HEXコード」で指定することがほとんど。</p>
+          <ul>
+            <li>※値を覚えるのは無理なので、その都度調べる。</li>
+            <li>※「#ffffff」や「#33ff99」のように、赤・緑・青それぞれの2文字が同じ場合、<em>「#fff」「#3f9」</em>に省略できる。</li>
+          </ul>
+          <p><a href="http://www.infonet.co.jp/ueyama/ip/glossary/hexadecimal.html">16進数とは？</a></p>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">7-2. 色の調べ方</h3>
+        <p>HEXコード（例えば「#ffffff」）でGoogle検索すると、カラーピッカーと変換ツールが表示されて便利。</p>
+        <p>※業務でWebサイトをマークアップする場合は、デザイナーが「AdobeXD」などのソフトで制作したデータ通りの色にする必要があるため、デザインデータの色を細かく調べて指定していく。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">7-3. 各種サービス</h3>
+        <ul>
+          <li><a href="https://www.designbombs.com/best-online-color-palette-generators/">15 Best Free Online Color Palette Generators</a></li>
+          <li><a href="https://nipponcolors.com/">NIPPON COLORS</a></li>
+        </ul>
+        <dl>
+          <dt>【chrome拡張】</dt>
+          <dd>
+            <ul>
+              <li><a href="https://chrome.google.com/webstore/detail/color-by-fardos/iibpgpkhpfggipbacjfeijkloidhmiei/related?hl=ja">Color by Fardos</a></li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">8. テキスト関連のプロパティ</h2>
+      <div class="clause">
+        <p>配色に合わせて、最初に覚えるべきは「テキスト関連」のプロパティ。</p>
+        <div class="item">
+          <dl>
+            <dt>【font-weight】</dt>
+            <dd>文字の重み（太さ）を設定する
+              <pre class="line-numbers"><code class="language-css">/* キーワード値を覚える */
+p {
+  font-weight: normal; /* 通常 */
+  font-weight: bold; /* 太字 */
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【font-style】</dt>
+            <dd>文字の文体（通常体・筆記体・斜体）を設定する
+              <pre class="line-numbers"><code class="language-css">/* キーワード値を覚える */
+p {
+  font-style: normal; /* 通常体 */
+  font-style: italic; /* 筆記体 */
+  font-style: oblique; /* 斜体 */
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【font-size】</dt>
+            <dd>文字サイズの大きさを設定する
+              <pre class="line-numbers"><code class="language-css">/* 絶対的な長さの単位「px」 */
+p {
+  font-size: 20px;
+}</code></pre>
+            </dd>
+          </dl>
+          <p><a href="https://www.weblab.co.jp/staff/design/8436.html">px（ピクセル）とは？</a></p>
+          <p>※使用できる単位は他にもあるが、今は「px」をしっかり理解すること。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【line-height】</dt>
+            <dd>テキストの1行の高さを設定する
+              <pre class="line-numbers"><code class="language-css">/* 相対的な長さの単位「em」「%」 */
+p {
+  line-height: 2em; /* フォントサイズの2倍 */
+  line-height: 200%; /* フォントサイズの200% */
+}</code></pre>
+            </dd>
+            <dd>
+              <img src="assets/02/line-height.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【letter-spacing】</dt>
+            <dd>文字間のスペースを設定する
+              <pre class="line-numbers"><code class="language-css">/*
+相対的な長さの単位「em」
+「%」は反映されない
+*/
+p {
+  letter-spacing: 0.5em; /* フォントサイズの0.5倍 */
+}</code></pre>
+            </dd>
+            <dd>
+              <img src="assets/02/letter-spacing.png" alt="">
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">9. 課題</h2>
+      <div class="clause">
+        <p>前回の課題「自分の1番好きなアーティストを紹介するページ」をCSSで装飾してみる</p>
+        <dl>
+          <dt>【提出方法】</dt>
+          <dd>
+            <ol>
+              <li>新規フォルダ「出席番号_苗字」を作成し、前回の課題で作成したHTMLファイルを移動させる</li>
+              <li>新たに「style.css」を同じ階層に作成し、自由に装飾する</li>
+              <li>フォルダを圧縮したzipファイルをGmailに添付し、「takagi.trident@gmail.com」に送信（件名は「WF1 氏名」）</li>
+              <li>締切：5月13日(水)17時まで</li>
+            </ol>
+          </dd>
+        </dl>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">9-1. 振り返しシートの記入</h3>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">10. 時間があまったら</h2>
+      <section class="clause">
+        <h3 class="clause__title">10-1. 練習</h3>
+        <p>以下の案内文を、HTMLファイルである程度再現してください。<br>
+        <a href="assets/01/sample.pdf" target="_blank">展示会のお知らせ</a></p>
+        <dl>
+          <dt>【注意点】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>新規ファイルを作成し、一からマークアップすること（ファイル名は任意 ※practice.htmlなど）</li>
+              <li>見た目のフォーマットにはとらわれず、全体の構造や文章の意味を考慮してマークアップすること</li>
+              <li>テキストはコピペで良い</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">10-2. 追加で覚える</h3>
+        <div class="item">
+          <dl>
+            <dt>【text-align（テキストアライン）】</dt>
+            <dd>要素内の水平方向の配置を設定（行揃え）
+              <pre class="line-numbers"><code class="language-css">/* キーワード値を覚える */
+p {
+  text-align: left; /* 左揃え（初期値） */
+  text-align: right; /* 右揃え */
+  text-align: center; /* 中央揃え */
+  text-align: justify /* 両端揃え */
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【list-style-type】</dt>
+            <dd>リスト項目要素のマーカーを設定する</dd>
+            <dd><a href="https://developer.mozilla.org/ja/docs/Web/CSS/list-style-type">list-style-type - MDN -</a></dd>
+          </dl>
+          <p><pre class="line-numbers"><code class="language-css">/* 「ul, ol, li」に設定することが多い */
+li {
+  list-style-type: none; /* none（ナン）と読む */
+}</code></pre></p>
+        </div>
+        <p><a href="https://good-creator.jp/guide/p227">あなたの読み方はあっている？よく耳にするHTML/CSS用語の誤った読み方</a></p>
+      </section>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

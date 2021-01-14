@@ -1,0 +1,306 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」09_スマホ対応 | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」09_スマホ対応</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <div class="item">
+          <ul class="clause__list">
+            <li>カラムレイアウト（display: flex;）</li>
+            <li>関連するプロパティ（flex-direction、flex-wrap、justify-content、align-items）</li>
+            <li>リセットCSS（ress.css）</li>
+            <li>説明リスト（dl、dt、dd）</li>
+            <li>その他の問題（flex: 1、vertical-align: middle）</li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【最初に】</dt>
+            <dd>
+              <ol>
+                <li><a href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigonyuryoku.html">「タイピング測定（英語編）」</a>とシート記入
+                </li>
+                <li>振り返りシートの記入</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【課題の続き】</dt>
+            <dd>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>スマホ対応</li>
+        </ul>
+        <p><a href="assets/09/09_sample.zip">サンプルデータ</a></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. スマホ対応の基礎</h2>
+      <section class="clause">
+        <h3 class="clause__title">3-1. スマホ対応の必要性</h3>
+        <div class="item">
+          <ul>
+            <li><a href="https://webtan.impress.co.jp/n/2019/11/05/34422">全世代で「スマホからのネット利用」がトップに</a></li>
+            <li><a href="https://webmaster-ja.googleblog.com/2018/03/rolling-out-mobile-first-indexing.html">「モバイルファースト・インデックス」の開始</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-2. スマホ対応の方法「別個のURL」</h3>
+        <p>別々のURLでサイトを構築したり、何らかの方法でPCとスマホを自動的に判別し表示するファイルを振り分ける方法。</p>
+        <ul>
+          <li>Facebook（<a href="https://www.facebook.com/groups/trident.web/" target="_blank">PC版</a>・<a href="https://m.facebook.com/groups/trident.web/" target="_blank">スマホ版</a>）</li>
+          <li>yahoo</li>
+          <li>amazon</li>
+        </ul>
+        <dl>
+          <dt>【メリット】</dt>
+          <dd>スマホで閲覧することに特化したWebサイトを構築できる</dd>
+          <dd>古いブラウザを考慮する必要がないため、HTML5やCSS3などの最新技術をふんだんに使うことができる</dd>
+        </dl>
+        <dl>
+          <dt>【デメリット】</dt>
+          <dd>更新や追加・修正の際に2倍の手間が掛かる</dd>
+          <dd>「単にコピーしただけのWebサイト」という誤認識を受け、Googleなどの検索エンジンで検索結果の上位に表示されにくくなる恐れがある</dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-3. スマホ対応の方法「レスポンシブウェブデザイン」</h3>
+        <p>ユーザーのデバイスの種類（パソコン、タブレット、モバイル、非視覚的ブラウザ）に関係なく、同じ「URL」で同じ「HTMLコード」を配信しつつ、画面サイズに応じて表示を変更する方法。</p>
+        <ul>
+          <li>
+            <a href="http://responsive-jp.com/" target="_blank">RWDJP</a>
+          </li>
+          <li>
+            <a href="https://mediaqueri.es/" target="_blank">Media Queries</a>
+          </li>
+        </ul>
+        <dl>
+          <dt>【メリット】</dt>
+          <dd>更新などの際に複数のHTMLファイルを書き換える必要がない</dd>
+          <dd>WebサイトのURLが統一されているため、シェアやリンクが容易</dd>
+        </dl>
+        <dl>
+          <dt>【デメリット】</dt>
+          <dd>スマホでの表示に時間がかかりやすくなってしまう</dd>
+          <dd>最初の設計や構築が複雑</dd>
+        </dl>
+        <p><a
+            href="https://developers.google.com/search/mobile-sites/mobile-seo?hl=ja">Googleは「レスポンシブウェブデザイン」をおすすめしている。</a>
+        </p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. レスポンシブウェブデザインの基礎</h2>
+      <section class="clause">
+        <h3 class="clause__title">4-1. 5つのポイント</h3>
+        <ul>
+          <li>Fluid Layout（フルードレイアウト）</li>
+          <li>Fluid Image（フルードイメージ）</li>
+          <li>Viewport（ビューポート）</li>
+          <li>Media query（メディアクエリ）</li>
+          <li>Breakpoint（ブレイクポイント）</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-2. Fluid Layout（フルードレイアウト）</h3>
+        <p>Webページのレイアウトは大きく分けると2種類ある。</p>
+        <div class="item">
+          <dl>
+            <dt>【Fixed Layout（フィックスドレイアウト）】</dt>
+            <dd>width, margin, padding を絶対単位の px で指定する</dd>
+            <dd>
+              <img src="http://morobrand.net/mororeco/wp/wp-content/uploads/2014/05/fluid-sample4.jpg">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【Fluid Layout（フルードレイアウト）】</dt>
+            <dd>width, margin, padding を相対単位の % や em などで指定する</dd>
+            <dd>
+              <img src="http://morobrand.net/mororeco/wp/wp-content/uploads/2014/05/fluid-sample5.jpg">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【固定（px）から可変（%）へ変換】</dt>
+            <dd>変換したい値（要素や余白の幅）÷ 変換したい値の親要素の幅 x 100</dd>
+          </dl>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-2. Fluid Image（フルードイメージ）</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">img {
+  max-midth: 100%;
+}</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-3. Media query（メディアクエリ）</h3>
+        <p>画面サイズや解像度などの閲覧環境に応じて適用するスタイルを切り替えられるCSS3の機能。</p>
+        <div class="item">
+          <dl>
+            <dt>【CSSに書き込む方法】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">/* 共通のスタイルを書く */
+
+body{ background-color: #fff; }
+
+/* ウィンドウサイズが600px〜1000px */
+
+@media (min-width:600px) and ( max-width:1000px) {
+  body{ background-color: #f00; }
+}
+
+/* ウィンドウサイズが1001px以上 */
+
+@media (min-width:1001px) {
+  body{ background-color: #00f; }
+}</code></pre>
+            </dd>
+          </dl>
+          <p>※単語ごとのスペースを忘れないこと</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【link要素として記述する方法】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;link rel="stylesheet" href="style.css"&gt;
+&lt;link rel="stylesheet" href="style_tablet.css" media="(min-width:600px) and (max-width:1000px)"&gt;
+&lt;link rel="stylesheet" href="style_pc.css" media="(min-width:1001px)"&gt;</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【メディアクエリを並べる順番】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">/* モバイルファースト
+-----------------------------------*/
+body{ background-color: #fff; }
+
+/* ウィンドウサイズが600px以上の時 */
+@media (min-width:600px) {
+  body{ background-color: #f00; }
+}
+
+/* ウィンドウサイズが960px以上の時 */
+@media (min-width:960px) {
+  body{ background-color: #00f; }
+}
+
+
+/* デスクトップファースト
+-----------------------------------*/
+body{ background-color: #fff; }
+
+/* ウィンドウサイズが960px以下の時 */
+@media (max-width:960px) {
+  body{ background-color: #f00; }
+}
+
+/* ウィンドウサイズが600px以下の時 */
+@media (max-width:600px) {
+  body{ background-color: #00f; }
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-4. Breakpoint（ブレイクポイント）</h3>
+        <p>メディアクエリでそれぞれ指定している画面幅のことを「ブレイクポイント」という。</p>
+        <ul>
+          <li><a href="https://qiita.com/pe-ta/items/b3b754bde584abc98f44">iPhone画面サイズ早見表（図付き）</a></li>
+          <li><a href="https://gs.statcounter.com/screen-resolution-stats/mobile/japan">ディスプレイサイズのシェア</a></li>
+        </ul>
+        <p>★「ブレイクポイント 2020」で検索してみる</p>
+        <p>※デザインによって変わってくる場合も多々あり</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-5. Viewport（ビューポート）</h3>
+        <p><a href="https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Responsive_Design">レスポンシブデザイン - MDN</a>
+        </p>
+        <p><a href="https://developers.google.com/web/tools/chrome-devtools/device-mode?hl=ja">Chrome DevTools での Device
+            Mode によるモバイル端末のシミュレート</a></p>
+        <p>★有名企業サイトのviewportを見てみる。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. 練習</h2>
+      <section class="clause">
+        <h3 class="clause__title">5-1. 練習その1</h3>
+        <p>サンプルデータを自分なりにレスポンシブデザインしてみる（提出は不要）</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">5-2. 練習その2</h3>
+        <p><a href="assets/09/09_renome.zip">サンプルデータ</a></p>
+        <p><a href="assets/09/renome/" target="_blank">見本</a></p>
+        <p><a href="assets/09/0710/" target="_blank">07/10時点のデータ</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. レスポンシブイメージ</h2>
+      <div class="clause">
+        <p>※後日勉強します。</p>
+      </div>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

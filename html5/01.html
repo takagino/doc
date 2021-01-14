@@ -1,0 +1,420 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」01_HTMLとは？ | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」01_HTMLとは？</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">1. HTMLとは？</h2>
+      <section class="clause">
+        <h3 class="clause__title">1-1. HyperText Markup Language</h3>
+        <div class="item">
+          <dl>
+            <dt>【HyperText（ハイパーテキスト）】</dt>
+            <dd>複数の文書を相互に関連付け、結び付ける仕組みのこと。「テキストを超える」という意味から「hyper-（～を超えた）」 「text（文書）」と名付けられた。テキスト間を結びつける参照のことを<em>「ハイパーリンク（略してリンク）」</em>と呼ぶ</dd>
+            <dd><img src="assets/01/hypertext.png" alt=""></dd>
+            <dd>すなわち、リンクを介して行き来できるすごいテキスト（書類）のこと</dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【Markup（マークアップ）】</dt>
+            <dd>文章の中に<em>目印（マーク）</em>を付けていくこと</dd>
+            <dd>元々の語源は、英語圏の出版業界で著者、編集者、印刷者の間で指示を伝える方法を意味する（校閲）</dd>
+            <dd><img src="https://i0.wp.com/onoprint.jp/hoppou/wp-content/uploads/sites/2/2018/03/kosei_example.gif" alt=""></dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【Language（ランゲージ）】</dt>
+            <dd>言語</dd>
+          </dl>
+        </div>
+        <p>まとめると、<br>HTMLとは<strong>「リンクを介して行き来できるすごいテキスト（書類）に目印を付けるための言語」</strong></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-2. 何のための目印？</h3>
+        <p>「何のため？」を知るには、<em>それが出来た歴史（背景）</em>を知るべし！</p>
+        <dl>
+          <dt>【WWW（World Wide Web）システムの発明】</dt>
+          <dd>1989年、欧州原子核研究機構 (CERN) の<em>ティム・バーナーズ＝リー</em>は、「Information Management: A Proposal」（情報管理: 提案）を執筆。<br>
+            <strong>研究状況の確認、論文の資料検索など、数千人にのぼる研究者に必要な情報を効率よく行き渡らせる</strong>環境を構築するためのシステムを考案した。</dd>
+        </dl>
+        <dl>
+          <dt>【WWWシステムの実装と公開】</dt>
+          <dd>1990年、WWWをより具体化した提案書「WorldWideWeb: Proposal for a HyperText Project」を発表。<br>
+            HTTP、URL、HTMLなど基幹となる仕組みや、ブラウザ、サーバなどのツールも構築し、人類初のウェブページが公開された。</dd>
+        </dl>
+        <dl>
+          <dt>【W3C（World Wide Web Consortium）の設立】</dt>
+          <dd>1994年、WWWで使用される各種技術の標準化を推進する為に設立された非営利団体。ティム・バーナーズ＝リーが創設し、率いている。</dd>
+          <dd><a href="https://ja.wikipedia.org/wiki/World_Wide_Web_Consortium#%E4%B8%BB%E3%81%AA%E8%A6%8F%E6%A0%BC">W3Cが勧告している規格</a></dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-3. 「WWW = インターネット」ではない</h3>
+        <p>インターネットとは、インターネット・プロトコル(IP)技術を利用して相互接続されたコンピュータネットワーク全体を指し、WWWはその一部の機能でしかない。</p>
+        <dl>
+          <dt>【インターネットに含まれる主な技術】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>telnet</li>
+              <li>電子メール (SMTP)</li>
+              <li>ファイル転送 (FTP)</li>
+              <li>チャット (IRC)</li>
+              <li>ネットニュース (NNTP)</li>
+              <li>WWW (HTTP)</li>
+            </ul>
+          </dd>
+        </dl>
+        <p><a href="https://www.nic.ad.jp/timeline/">インターネット歴史年表</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 実際に触ってみよう</h2>
+      <section class="clause">
+        <h3 class="clause__title">2-1. 事前準備</h3>
+        <p>デスクトップが綺麗な人は、仕事が早い！</p>
+        <ol>
+          <li>デスクトップに「HTML5基礎」用のフォルダを作成する</li>
+          <li>コマごとにデータをわけておく（番号、単元名などをフォルダ名にする「HTML5基礎 / 01_HTMLの基礎」）
+            <img src="assets/01/desktop.png" alt="">
+          </li>
+        </ol>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-2. HTMLファイルの準備</h3>
+        <ol>
+          <li>「Visual Studio Code」を立ち上げる</li>
+          <li>メニュー「File」-「New File」で新規ファイルを作成する</li>
+          <li>メニュー「File」-「Save」で忘れないうちに保存しておく（ファイル名は「<em>index.html</em>」）</li>
+          <li>保存したファイルをブラウザで開いてみる（ファイルをダブルクリック、もしくはブラウザの上にドラッグ）</li>
+        </ol>
+        <ul>
+          <li>※ネット上に公開するファイルは、<em>すべてアルファベットで保存する</em>こと（文字化けや読み込みエラーの原因になる）</li>
+          <li>※徐々にショートカットを覚えてください。新規ファイルの作成は「control+ n」、保存は「control + s」（Macの場合は、「control」ではなく「command」）</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-3. 拡張子を表示する</h3>
+        <p>拡張子とは、ファイルの種類を識別するためにファイル名の末尾につけられる文字列。表示されていないと不便なので、常に表示しておくこと。</p>
+        <dl>
+          <dt>【Windowsの場合】</dt>
+          <dd><a href="http://www.wannko.net/windows10/kihon/kaku.html">Windows10でのファイル拡張子の表示方法</a></dd>
+        </dl>
+        <dl>
+          <dt>【Macの場合】</dt>
+          <dd><a href="https://pkaruma.net/mafinder-show-file-extensions/">Mac - ファイルの拡張子を表示/非表示にする</a></dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-3. HTMLを記述してみる</h3>
+        <ol>
+          <li>1行目に「自分の名前」を書く
+            <pre class="line-numbers"><code class="language-markup">高木寛貴</code></pre>
+          </li>
+          <li>保存する「control + s」</li>
+          <li>ブラウザを更新する「control + r」</li>
+        </ol>
+        <p>トライデントでの最初のWebサイトが完成！ネット上に公開すれば、世界中の人々が見ることができる。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-4. さらに記述してみる</h3>
+        <ol>
+          <li>2行目以降に、「生年月日」「出身地」「血液型」を書く
+            <pre class="line-numbers"><code class="language-markup">高木寛貴
+1981年1月15日
+岐阜県
+B型</code></pre>
+          </li>
+          <li>保存する「control + s」</li>
+          <li>ブラウザを更新する「control + r」</li>
+        </ol>
+        <p>文字のフォーマットが同一で、改行も反映されず内容が理解できないため、効率よく情報を閲覧できるとは言い難い…</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-5. 目印をつけてみる</h3>
+        <ol>
+          <li>それぞれのテキストを目印で囲む
+            <pre class="line-numbers"><code class="language-markup">&lt;h1&gt;高木寛貴&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;1981年1月15日&lt;/li&gt;
+&lt;li&gt;岐阜県&lt;/li&gt;
+&lt;li&gt;B型&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </li>
+          <li>保存する「control + s」</li>
+          <li>ブラウザを更新する「control + r」</li>
+        </ol>
+        <p>★どう変化した？</p>
+        <p>マークアップとは、<br><strong>「効率よく情報を収集・閲覧するため、文字や文章に目印をつけて、コンピュータが構造や意味を理解できるようにすること」</strong></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-6. 目印の正式名称</h3>
+        <p><img src="assets/01/element.png" alt=""></p>
+        <ul class="clause__list">
+          <li>テキストにつけた目印のことを<em>「タグ」</em>と呼ぶ</li>
+          <li>特に、先頭のタグを<em>「開始タグ」</em>、末尾のタグを<em>「終了タグ」</em>と呼ぶ</li>
+          <li>タグで囲ったテキスト全体を<em>「要素」</em>と呼ぶ</li>
+          <li>h1のタグを<em>「h1タグ」</em>、h1で囲った要素を<em>「h1要素」</em>と呼ぶ</li>
+          <li>要素は英語で<em>「element」</em>、タグは<em>「tag」</em></li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-7. タグの作法</h3>
+        <ul class="clause__list">
+          <li>タグの途中でスペース・改行を入れない</li>
+          <li>大文字小文字は区別されないが、基本的にはすべて小文字</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-8. どのようなタグがあるのか？</h3>
+        <p><a href="http://luululu.com/paper/2012/C1-1.pdf">論文のために作られたのだから、論文で考えるべし</a></p>
+        <dl>
+          <dt>【h1〜h6（heading）】</dt>
+          <dd>全体の表題や、文章の見出しに使われる</dd>
+          <dd>見出しのレベルは順番に使用すること</dd>
+        </dl>
+        <dl>
+          <dt>【p（paragraph）】</dt>
+          <dd>文章のかたまり、段落を指定する</dd>
+        </dl>
+        <dl>
+          <dt>【ul（unordered list）、ol（ordered list）、li（list item）】</dt>
+          <dd>ナビゲーションメニューや箇条書きなどに使われる。ulは順不同リスト、olは番号順リスト</dd>
+        </dl>
+        <p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element">タグ一覧</a></p>
+        <p>よく使用されるタグの意味とスペルを覚えることはもちろん、<br><strong>「適切なタグ（目印）を付けるために、ページ全体の構造とそれぞれの文章の内容・役割を理解すること」</strong>がより重要！</p>
+        <p><pre class="line-numbers"><code class="language-markup">&lt;h1&gt;高木寛貴&lt;/h1&gt;
+&lt;p&gt;優しくて力持ち&lt;/p&gt;
+&lt;h2&gt;基本情報&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1981年1月15日&lt;/li&gt;
+  &lt;li&gt;岐阜県&lt;/li&gt;
+  &lt;li&gt;B型&lt;/li&gt;
+&lt;/ul&gt;</code></pre></p>
+        <p>※要素内の内容が複数行にわたる場合は、「インデント」をつけて見やすくしておくと良い。（ショートカットは「tab」）</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. HTMLの基本構造</h2>
+      <div class="clause">
+        <p><pre class="line-numbers"><code class="language-markup">&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;高木寛貴&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;1981年1月15日&lt;/li&gt;
+      &lt;li&gt;岐阜県&lt;/li&gt;
+      &lt;li&gt;B型&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></p>
+        <dl>
+          <dt>【html要素】</dt>
+          <dd>HTML文書の始まりと終わりを指定する</dd>
+          <dd>決まり文句のようなもので、全てのHTML文書はhtml要素で囲われている</dd>
+        </dl>
+        <dl>
+          <dt>【head要素】</dt>
+          <dd>文書に関する機械可読な情報 <em>（メタデータ）</em>を記述する</dd>
+          <dd>題名や制作者名などを記述し、Webブラウザに直接は表示されない</dd>
+        </dl>
+        <dl>
+          <dt>【body要素】</dt>
+          <dd>HTML文書の内容を記述する</dd>
+          <dd>ここに記述した部分がWebブラウザに表示される</dd>
+        </dl>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">3-1. 最低限のメタデータ</h3>
+        <p><pre class="line-numbers"><code class="language-markup">&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;文書のタイトル&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;高木寛貴&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;1981年1月15日&lt;/li&gt;
+      &lt;li&gt;岐阜県&lt;/li&gt;
+      &lt;li&gt;B型&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></p>
+        <dl>
+          <dt>【文字コード】</dt>
+          <dd>&lt;meta charset="UTF-8"&gt;</dd>
+          <dd>文字化けを防ぐために、head要素の上の方（文章が記述される前）に記述する</dd>
+        </dl>
+        <dl>
+          <dt>【title要素】</dt>
+          <dd>ウェブページのタイトルを記述する。ブラウザのタブや、検索結果に表示される</dd>
+          <dd><img src="assets/01/title01.png" alt="" width="400"></dd>
+          <dd><img src="assets/01/title02.png" alt="" width="400"></dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. DOCTYPE宣言</h2>
+      <div class="clause">
+        <p>HTMLは常にバージョンアップを繰り返しており、現在の最新バージョンは「HTML5」。バージョンによって多少の違いがあるため、そのファイルがどのバージョンで書かれているかを最初に宣言する必要がある。</p>
+        <p><pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;文書のタイトル&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;高木寛貴&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;1981年1月15日&lt;/li&gt;
+      &lt;li&gt;岐阜県&lt;/li&gt;
+      &lt;li&gt;B型&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></p>
+        <p>ちなみに、<a href="https://ja.wikipedia.org/wiki/%E6%96%87%E6%9B%B8%E5%9E%8B%E5%AE%A3%E8%A8%80">過去バージョンの書き方</a></p>
+        <p>トライデントでの最初のWebサイトが今後こそ完成！</p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. ここまでのまとめ</h2>
+      <div class="clause">
+        <p>HTMLとは、<br>
+          <strong>「リンクを介して行き来できるすごいテキストで書かれた文章の中に目印（タグ）をつけ、コンピュータが構造や意味を理解できるようにし、効率よく情報を収集・閲覧できるようにするための言語」</strong></p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">5-1. コメントをつける</h3>
+        <p><pre class="line-numbers"><code class="language-markup">&lt;!-- ここに書いたテキストはブラウザに表示されない --&gt;</code></pre></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">5-2. 練習</h3>
+        <p>以下の案内文を、HTMLファイルである程度再現してください。<br>
+        <a href="assets/01/sample.pdf" target="_blank">展示会のお知らせ</a></p>
+        <dl>
+          <dt>【注意点】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>新規ファイルを作成し、一からマークアップすること（ファイル名は任意 ※practice.htmlなど）</li>
+              <li>見た目のフォーマットにはとらわれず、全体の構造や文章の意味を考慮してマークアップすること</li>
+              <li>文章の中央揃えや、文章間の余白は無視すること</li>
+              <li>内容はコピペで良い</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. その他の要素と属性</h2>
+      <div class="clause">
+        <p><pre class="line-numbers"><code class="language-markup">&lt;h1&gt;高木寛貴&lt;/h1&gt;
+&lt;p&gt;優しくて&lt;br&gt;力持ち&lt;/p&gt;
+&lt;h2&gt;基本情報&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1981年1月15日&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.pref.gifu.lg.jp/"&gt;岐阜県&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="https://www.motivation-up.com/whats/images/type_b.gif"&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></p>
+        <dl>
+          <dt>【br（break）】</dt>
+          <dd>文章を改行する</dd>
+          <dd>改行については、ここからここまでという範囲は無いので、終了タグが存在しない。このようなタグを<em>「空タグ」</em>という</dd>
+        </dl>
+        <dl>
+          <dt>【a（anchor）】</dt>
+          <dd>ハイパーリンクを設定する</dd>
+          <dd>「href（hypertext reference）属性」でリンク先を指定する必要がある</dd>
+        </dl>
+        <dl>
+          <dt>【img（image）】</dt>
+          <dd>画像を表示する</dd>
+          <dd>「src（source）属性」で画像ファイルの場所を指定する必要がある</dd>
+          <dd>範囲は無いので「空タグ」</dd>
+        </dl>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">6-1. 属性とは？</h3>
+        <p><img src="assets/01/attribute.png" alt="" width="600"></p>
+        <ul class="clause__list">
+          <li>要素に設定を付加するもの</li>
+          <li>開始タグに<em>半角スペース</em>を空け、<em>「属性名」</em>と<em>「属性値」</em>を「=（イコール）」でつないだセットで追加していく</li>
+          <li>「属性値」は<em>「"（ダブルクォーテーション）」</em>もしくは<em>「'（シングルクォーテーション）」</em>で囲む</li>
+          <li>複数指定する場合は、さらに半角スペースを空け追加していく</li>
+          <li>要素ごとに付加できる属性は決められているため、まずは主要なものを覚える</li>
+          <li>属性は英語で<em>「attribute」</em></li>
+        </ul>
+        <p>★<a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/a">「a要素」</a>にどんな属性があるのか見てみよう</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">7. 課題</h2>
+      <div class="clause">
+        <p>自分の1番好きなアーティストを紹介するページを作成してみる</p>
+        <p><img src="assets/01/mihon.png" alt=""></p>
+        <dl>
+          <dt>【注意点】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>基本構造やDOCTYPE宣言も正確に記述すること</li>
+              <li>画像URLの取得方法がわからない人は「画像 url コピー」で検索</li>
+              <li>今回はWeb上にアップしないので画像の著作権は考慮しないが、普段は気をつけること</li>
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt>【提出方法】</dt>
+          <dd>
+            <ol>
+              <li>ファイル名「出席番号_苗字.html」で保存する（00_takagi.html）</li>
+              <li>Gmailに添付し、「takagi.trident@gmail.com」に送信（件名は「WF1 氏名」）</li>
+              <li>締切：5月6日(水)17時まで</li>
+            </ol>
+          </dd>
+        </dl>
+      </div>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

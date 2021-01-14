@@ -1,0 +1,647 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」05_アウトライン | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」05_アウトライン</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">0. 各種作業</h2>
+      <section class="clause">
+        <h3 class="clause__title">0-1. 就職活動のお話</h3>
+        <dl>
+          <dt>【株式会社エイチーム】</dt>
+          <dd>
+            <ul>
+              <li><a
+                  href="https://ateam-group.snar.jp/jobboard/detail.aspx?id=Na6xV_lQ81I">2022年3月卒向けインターンシップのプレエントリー</a>
+              </li>
+              <li><a href="https://www.a-tm.co.jp/recruit/requirements/new/">2021年卒の募集職種</a></li>
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt>【1年次のポートフォリオサイト】</dt>
+          <dd><a href="https://www.vivivit.com/">VIVIVIT</a></dd>
+        </dl>
+        <dl>
+          <dt>【会社・求人情報】</dt>
+          <dd>
+            <ul>
+              <li><a href="https://www.wantedly.com/">Wantedly</a></li>
+              <li><a href="https://www.moreworks.jp/">MORE WORKS</a></li>
+              <li><a href="https://job.cinra.net/">CINRA.job</a></li>
+              <li><a href="https://artdesignjobs.bijutsu.press/">アートとデザインの現場</a></li>
+            </ul>
+            <ul>
+              <li><a href="https://tridentwebdesign.blog.fc2.com/blog-entry-542.html">ウェブDeBLOG</a></li>
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt>【連絡事項】</dt>
+          <dd>6/15(月)「社会人基礎力」内で、就職情報センターの担当の職員さんに30分ほど話をしてもらいます。</dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">0-2. レンタルサーバーの契約</h3>
+        <p>トライデント学生専用のお申し込みフォームから契約すると、<a href="https://lolipop.jp/">ロリポップ</a>のレンタルサーバーが2年間無料で利用できます。</p>
+        <p>マニュアル：「pub_配布用folder ＞ 2020 ＞ 前期 ＞ WF1 ＞ HTML5基礎 ＞ lolipop.pdf」</p>
+        <div class="item">
+          <dl>
+            <dt>【レンタルサーバーとは？】</dt>
+            <dd><a href="https://www.kagoya.jp/howto/rentalserver/basic-01/">レンタルサーバーとは?契約からできることを初心者にもわかりやすく解説します</a>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【FTPクライアント】</dt>
+            <dd><a href="https://www.kagoya.jp/howto/network/ftp/">FTPとは？通信・ソフトについて分かりやすく解説します</a></dd>
+          </dl>
+          <dl>
+            <dt>■Windowsの有名ソフト</dt>
+            <dd>
+              <ul>
+                <li><a href="https://ja.osdn.net/projects/ffftp/">FFFTP</a></li>
+                <li><a href="https://ja.osdn.net/projects/filezilla/">FileZilla</a></li>
+                <li><a href="https://cyberduck.io/">Cyberduck</a></li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <dt>■Macの有名ソフト</dt>
+            <dd>
+              <ul>
+                <li><a
+                    href="https://apps.apple.com/jp/app/forklift-file-manager-and-ftp-sftp-webdav-amazon-s3-client/id412448059"
+                    target="_blank">ForkLift（バージョン2が無料）</a></li>
+                <li><a href="https://cyberduck.io/">Cyberduck</a></li>
+                <li><a href="https://panic.com/jp/transmit/" target="_blank">Transmit（有料）</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【Apple IDの登録（持ってない人は）】</dt>
+            <dd><a href="https://appleid.apple.com/" target="_blank">Apple ID</a></dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【独自ドメインの取得】</dt>
+            <dd>
+              <ul>
+                <li><a href="https://muumuu-domain.com/">ムームードメイン</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <div class="item">
+          <ul class="clause__list">
+            <li>AdobeXDの使い方（テキストのコピー、テキストの数値、余白の長さ）</li>
+            <li>スタイルの継承（継承されるプロパティ、bodyに指定すべきプロパティ）</li>
+            <li>要素をまとめるタグ「div」</li>
+            <li>画像をウィンドウ幅に合わせる（max-width:100%;）</li>
+            <li>その他（font-family、max-width、min-width、text-decoration）</li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【最初に】</dt>
+            <dd>
+              <ol>
+                <li><a
+                    href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html">「タイピング測定（日本語編）」</a>とシート記入
+                </li>
+                <li>振り返りシートの記入</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>アウトライン・アルゴリズム</li>
+          <li>子孫セレクタ</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">2-1. HTMLとCSSの準備</h3>
+        <p>この単元用に新しい「index.html」と「style.css」を作ります。フォルダで整理し、link要素の書き方と相対パスに気をつけてゼロから作ってみましょう。</p>
+        <p>
+        <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Education&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-css">@charset "utf-8";</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-2. デザインデータのダウンロード</h3>
+        <p><a href="assets/05/05_sample.zip">05_sample.zip</a></p>
+        <ol>
+          <li>zipファイルを解凍し、ファルダ内のデータをHTMLファイルと同じ階層に移動させる。
+            <img src="assets/04/01.png" alt="">
+          </li>
+        </ol>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-3. 完成版の確認</h3>
+        <p><a href="assets/05/complete/" target="_blank">完成版</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. デザインデータのマークアップ</h2>
+      <section class="clause">
+        <h3 class="clause__title">3-1. マークアップを始める前に</h3>
+        <p>まずはデザインデータを眺めて、どのようにマークアップするか考える</p>
+        <ul class="clause__list">
+          <li>全体の構成は？</li>
+          <li>見出しの付け方は？</li>
+          <li>画像になる部分はどこか？（今回はこちらで準備したが、本来は自分で書き出す必要がある）</li>
+          <li>リンクになる部分はどこか？</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-2. HTMLで文書構造を作る</h3>
+        <p>まずは文書構造がきれいに書けるように、HTMLを先に完成させます。（慣れてきたらHTMLとCSSを交互に書いていっても構いません）</p>
+        <div class="item">
+          <dl>
+            <dt>【注意点】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>文字の大きさなどの見た目に惑わされないこと。（全体の構成と文章の意味だけを考える）</li>
+                <li>class名はまだ付けなくてもよい。</li>
+                <li>AdobeXDの操作に慣れないうちは、いつのまにかデザインを変更してしまうことが多々あるので、データを複製してバックアップをとっておくと良い。</li>
+              </ul>
+            </dd>
+        </div>
+        <dl>
+          <dt>【AdobeXDで文字をコピーする】</dt>
+          <dd>「選択ツール」で文字をクリックしても選択できるが、今回のデータは細かくグループ化されており、順番にダブルクリックしていく必要がある。</dd>
+          <dd>その場合は「文字ツール」に切り替えて文字をクリックすると、直接選択できて便利。</dd>
+          <dd>「文字ツール」で選択した文字をダブルクリックすることで内容が選択されるので、コピーをする。</dd>
+        </dl>
+        <p>※文字全体の選択が解除されてしまった場合は、「ctrl + a（Macは、command + a）」で全選択ができる。</p>
+      </section>
+      <div class="clause">
+        <p><a href="assets/05/html/" target="_blank">HTMLのみ</a></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. アウトライン・アルゴリズム</h2>
+      <div class="clause">
+        <p>
+          前回、要素をグループ化するための要素「div」を勉強したが、「マークアップの効率向上のためのdiv」「デザイン上どうしてもグループ化しないといけないdiv」「全体の構造をわかりやすくするためのdiv」など、様々な用途の「div」が混在すると、HTML全体の見通しが悪くなる。
+        </p>
+        <p>そこで、HTMLバージョン5から、構造を意味する要素が多数追加された。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">4-1. レイアウトを区切るための要素</h3>
+        <div class="item">
+          <p>Webページは基本的に以下の図のようなレイアウトで構成されている。</p>
+          <p><img src="assets/05/01.png" alt=""></p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【header（ヘッダー）】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>サイトのメインタイトルやロゴ</li>
+                <li>グルーバルナビゲーション（各ページへのリンク）</li>
+                <li>主要ベージへのリンク</li>
+                <li>ページ内検索フォーム　など、全ページにわたって表示したい内容</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【main（メインコンテンツ）】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>ページの内容</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【footer（フッター）】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>サイトマップ</li>
+                <li>住所などの基本情報</li>
+                <li>著作権に関する情報　など、全ページにわたって表示したい内容</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <p>HTMLバージョン5より、レイアウトの構成を指定するため、その名前通りの要素が追加された。</p>
+        <p>
+        <pre class="line-numbers"><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;EDUCATION&lt;/title&gt;
+  &lt;link rel="stylesheet" href="./css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- ヘッダー --&gt;
+  &lt;header&gt;
+    &lt;p&gt;&lt;img src="images/ico_menu.png"&gt;&lt;/p&gt;
+    &lt;h1&gt;&lt;img src="images/img_logo.png"&gt;&lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;!-- メインコンテンツ --&gt;
+  &lt;main&gt;
+    &lt;h2&gt;WORLD NEWS&lt;/h2&gt;
+    &lt;p&gt;Amazing places in America to visit.&lt;/p&gt;
+    &lt;p&gt;For some reason — this country, this city, this neighborhood, this particular street —  is the place you are living a majority of your life in.&lt;/p&gt;
+    &lt;a href="#"&gt;LEARN MORE →&lt;/a&gt;
+
+    &lt;h2&gt;MORE NEWS&lt;/h2&gt;
+    &lt;p&gt;TRAVEL&lt;/p&gt;
+    &lt;h3&gt;Article title&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat…&lt;/p&gt;
+    &lt;p&gt;2m ago&lt;/p&gt;
+
+    &lt;p&gt;TECHNOLOGY&lt;/p&gt;
+    &lt;h3&gt;Article title&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat…&lt;/p&gt;
+    &lt;p&gt;1h ago&lt;/p&gt;
+
+    &lt;h2&gt;TRENDING&lt;/h2&gt;
+    &lt;img src="images/pic_trending01.png"&gt;
+    &lt;h3&gt;Dolore magna aliqua&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat.&lt;/p&gt;
+    &lt;p&gt;2m ago&lt;/p&gt;
+
+    &lt;img src="images/pic_trending02.png"&gt;
+    &lt;h3&gt;Morbi eleifend a libero&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat.&lt;/p&gt;
+    &lt;p&gt;1h ago&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;!-- フッター --&gt;
+  &lt;footer&gt;
+    &lt;p&gt;2019 All Rights Reserved.&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-2. 文書構造化のための要素</h3>
+        <p>HTMLバージョン5より、文書の構造を指定するための要素が追加された。これらをまとめて「セクショニング・コンテンツ」と呼ぶ。</p>
+        <dl>
+          <dt>【section（セクション）要素】</dt>
+          <dd>HTML文書の中で、意味的に関連するグループを表す。セクションを表現するより意味的に具体的な要素がない場合に使用し、必ずではないが、通常はセクションには見出しがある。</dd>
+        </dl>
+        <dl>
+          <dt>【article（アーティクル）要素】</dt>
+          <dd>一つの自己完結型のコンテンツ（例えば、フォーラムの投稿、雑誌や新聞の記事、ブログの記事）を表す。必ずではないが、通常はアーティクルには見出しがある。</dd>
+        </dl>
+        <dl>
+          <dt>【aside（アサイド）要素】</dt>
+          <dd>文書のメインコンテンツと間接的な関係しか持っていない部分（例えば、バナー広告、関連記事、コラム）を表す。</dd>
+        </dl>
+        <dl>
+          <dt>【nav（ナビ）要素】</dt>
+          <dd>文書内の主要なナビゲーションを表す。</dd>
+        </dl>
+        <p>そして、「セクショニング・コンテンツ」は文書の構造を指定すると同時に<em>「アウトライン」</em>を明確に形作るために使用される。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-3. アウトラインとは？</h3>
+        <p>アウトライン（アウトライン・アルゴリズム）とは、文書内の構造を本の目次のように階層化したもの。</p>
+        <p><em>★<a href="https://gsnedders.html5.org/outliner/">HTML5
+              Outliner</a>で「トライデントコンピュータ専門学校」のページのアウトラインを見てみよう。</em></p>
+        <p>アウトラインは2種類の仕組みによって形作られる。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-4. 暗黙的アウトライン（見出し要素）</h3>
+        <p>文書内に見出し要素が出てくる度に、自動的にアウトラインが生成される。</p>
+        <div class="item">
+          <dl>
+            <dt>【具体例その1】</dt>
+            <dd>見出しレベルが同等以下のものが出現すると「さらに細かい内容に分けられた」とみなされ、インデントのついたアウトラインが生成される。
+              <pre class="line-numbers"><code class="language-markup">&lt;h1&gt;見出し1&lt;/h1&gt;
+&lt;h2&gt;見出し2&lt;/h2&gt;
+&lt;h3&gt;見出し3&lt;/h3&gt;
+&lt;h4&gt;見出し4&lt;/h4&gt;
+&lt;h5&gt;見出し5&lt;/h5&gt;
+&lt;h6&gt;見出し6&lt;/h6&gt;</code></pre>
+              <img src="assets/05/02.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【具体例その2】</dt>
+            <dd>見出しレベルが同等以上のものが出現すると「次の内容に移行した」とみなされ、同列のアウトラインが生成される。
+              <pre class="line-numbers"><code class="language-markup">&lt;h1&gt;見出し1&lt;/h1&gt;
+&lt;h2&gt;見出し2&lt;/h2&gt;
+&lt;h3&gt;見出し3&lt;/h3&gt;
+&lt;h2&gt;見出し2&lt;/h2&gt;
+&lt;h3&gt;見出し3&lt;/h3&gt;
+&lt;h4&gt;見出し4&lt;/h4&gt;</code></pre>
+              <img src="assets/05/03.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <p><em>★現状のHTMLのアウトラインを見てみよう。</em></p>
+        <p>※「h1」で囲ったロゴのラベルが表示されないが、原因は後で説明するので、いったん無視してください。</p>
+        <p>デザインが複雑になり、解釈できる媒体が増えるにつれて「暗黙的アウトライン」だけでは綺麗なアウトラインが作れなくなってきた。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-5. 明示的アウトライン（セクショニング・コンテンツ）</h3>
+        <p>セクショニング・コンテンツに属する要素が出てくる度に、自動的にアウトラインが生成される。</p>
+        <div class="item">
+          <dl>
+            <dt>【具体例その1】</dt>
+            <dd>要素の外側に別のセクショニング・コンテンツが出現すると「次の内容に移行した」とみなされ、同列のアウトラインが生成される。
+              <pre class="line-numbers"><code class="language-markup">&lt;section&gt;
+&lt;/section&gt;
+&lt;article&gt;
+&lt;/article&gt;
+&lt;aside&gt;
+&lt;/aside&gt;
+&lt;nav&gt;
+&lt;/nav&gt;</code></pre>
+              <img src="assets/05/04.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【見出しの設定】</dt>
+            <dd>セクショニング・コンテンツ内の一番最初の見出しがそのアウトラインのラベルとなる。
+              <pre class="line-numbers"><code class="language-markup">&lt;section&gt;
+  &lt;h1&gt;見出し1&lt;/h1&gt;
+&lt;/section&gt;
+&lt;article&gt;
+　&lt;h2&gt;見出し2&lt;/h2&gt;
+&lt;/article&gt;
+&lt;aside&gt;
+&lt;/aside&gt;
+&lt;nav&gt;
+&lt;/nav&gt;</code></pre>
+              <img src="assets/05/05.png" alt="">
+            </dd>
+          </dl>
+          <p>※一番最初の謎のアウトラインは後で説明するので、いったん無視してください。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【具体例その2】</dt>
+            <dd>セクショニング・コンテンツ内に、さらにセクショニング・コンテンツが出現すると「さらに細かい内容に分けられた」とみなされ、インデントのついたアウトラインが生成される。
+              <pre class="line-numbers"><code class="language-markup">&lt;section&gt;
+  &lt;h1&gt;見出し1&lt;/h1&gt;
+  &lt;section&gt;
+  　&lt;h2&gt;見出し2&lt;/h2&gt;
+  &lt;/section&gt;
+  &lt;aside&gt;
+  &lt;/aside&gt;
+&lt;/section&gt;
+&lt;article&gt;
+　&lt;h2&gt;見出し2&lt;/h2&gt;
+&lt;/article&gt;
+&lt;aside&gt;
+&lt;/aside&gt;
+&lt;nav&gt;
+&lt;/nav&gt;</code></pre>
+              <img src="assets/05/06.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <p>デザイン的に見出しがない場合でも、「明示的アウトライン」を意識してマークアップをすれば、人間にも機械（PC）にもわかりやすいアウトラインを作ることができる！</p>
+        <p><strong>ただし、「適当に見出しをつけても良い」ということではなく、セクショニング・コンテンツがなくても綺麗なアウトラインになるように見出しをつけること。</strong></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-6. セクショニング・ルート</h3>
+        <p>セクショニングルートは、それ自体が独自のアウトラインを形成する要素で、文書全体のアウトラインには影響を与えない。</p>
+        <div class="item">
+          <dl>
+            <dt>【body要素】</dt>
+            <dd>一番最初にアウトラインを生成し、最初に出てきた「子要素の見出し」をラベルとする。
+              <pre class="line-numbers"><code class="language-markup">&lt;body&gt;
+  &lt;section&gt;
+    &lt;h1&gt;見出し1&lt;/h1&gt;
+    &lt;section&gt;
+    　&lt;h2&gt;見出し2&lt;/h2&gt;
+    &lt;/section&gt;
+    &lt;aside&gt;
+    &lt;/aside&gt;
+  &lt;/section&gt;
+  &lt;article&gt;
+  　&lt;h2&gt;見出し2&lt;/h2&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;
+  &lt;/aside&gt;
+  &lt;nav&gt;
+  &lt;/nav&gt;
+  &lt;h1&gt;子要素の見出し&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+              <img src="assets/05/07.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【blockquote要素】</dt>
+            <dd>「引用」を表す「blockquote要素」などは、見出しがあってもアウトラインには表示されない。
+              <pre class="line-numbers"><code class="language-markup">&lt;body&gt;
+  &lt;section&gt;
+    &lt;h1&gt;見出し1&lt;/h1&gt;
+    &lt;section&gt;
+    　&lt;h2&gt;見出し2&lt;/h2&gt;
+    &lt;/section&gt;
+    &lt;aside&gt;
+      &lt;blockquote&gt;
+        &lt;h2&gt;引用の見出し&lt;/h2&gt;
+      &lt;/blockquote&gt;
+    &lt;/aside&gt;
+  &lt;/section&gt;
+  &lt;article&gt;
+  　&lt;h2&gt;見出し2&lt;/h2&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;
+  &lt;/aside&gt;
+  &lt;nav&gt;
+  &lt;/nav&gt;
+  &lt;h1&gt;子要素の見出し&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <p><em>★HTMLにセクショニング・コンテンツを追加して、文書構造を完成させましょう。</em></p>
+        <p><a href="assets/05/section/" target="_blank">セクショニング・コンテンツ追加</a></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-7. 関連項目「画像の代替テキスト」</h3>
+        <p>代替テキストはWebサイト内に含まれている画像や動画が何らかの原因で表示されなかったときや、視覚障害者などが音声ブラウザを使用するときに替わりに表示するテキストを指す。</p>
+        <dl>
+          <dt>【alt（オルト）属性】</dt>
+          <dd>
+            <pre class="line-numbers"><code class="language-markup">&lt;img src="images/img_logo.png" alt="EDUCATION"&gt;
+
+&lt;!--
+  特に代替テキストが必要ない画像でも、alt属性を追加し、値を空にしておくこと！
+  ※画像にalt属性が無いと文法的にエラーとなります。
+  ※「alt属性」の値を空にしておくと、音声ブラウザなどで読み飛ばしてくれるため、アクセシビリティが向上します。
+--&gt;
+&lt;img src="images/pic_trending01.png" alt=""&gt;</code></pre>
+          </dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. ページを完成させる</h2>
+      <div class="clause">
+        <p>では、前回同様、順番にCSSを指定していきます。共有画面でゆっくり進めていくので、ついて来れない場合はすぐに教えてください。</p>
+        <div class="item">
+          <dl>
+            <dt>【body要素に指定するプロパティ】</dt>
+            <dd>
+              <pre class="line-numbers language-css"><code class=" language-css">@charset "utf-8";
+
+body{
+  margin: 0;
+  color: #A6ADB4;
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  line-height: 1.7em;
+  letter-spacing: 0;
+  background-color: #F6F8F9;
+}
+
+img{
+  max-width: 100%;
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <section class="clause">
+          <h3 class="clause__title">5-1. 子孫セレクタ</h3>
+          <p>
+            今回のデザインをよく見ると、h2となる見出しのデザインが微妙に異なっている。全てにclass名をつけても良いが、より大きな親要素にclass名をつけ<em>「子孫セレクタ」</em>と呼ばれる方法で指定したほうが、後々効率が良くなることが多い。
+          </p>
+          <p><img src="assets/05/08.png" alt=""></p>
+          <p>
+          <pre class="line-numbers"><code class="language-css">/* 要素セレクタには、共通したプロパティを指定 */
+h2{
+  color: #202124;
+  font-size: 24px;
+  line-height: 1.2em;
+  margin: 0 0 30px;
+}
+
+/* 子孫セレクタで、特定の親要素の中にある要素のみを指定 */
+.worldnews h2{
+  padding: 0 0 30px;
+  color: #fff;
+  border-bottom: 2px solid;
+}
+
+.morenews h2{
+  padding: 0 0 30px;
+  border-bottom: 2px solid;
+}
+</code></pre>
+          </p>
+        </section>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. 課題</h2>
+      <div class="clause">
+        <p>以下のデザインデータをマークアップする。</p>
+        <p><a href="assets/05/05_kadai.zip">05_kadai.zip</a></p>
+        <dl>
+          <dt>【提出】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>フォルダ名：出席番号_名前　例）00_takagi</li>
+              <li>締め切り：6月11日(木)10時</li>
+              <li>提出先：「提出用folder ＞ 2020 ＞ 前期 ＞ WF1 ＞ HTML5基礎 ＞ 05_sello」</li>
+            </ul>
+          </dd>
+          <dd>※XDデータはアップロードしないこと</dd>
+        </dl>
+        <dl>
+          <dt>【提出用folderへのアクセス】</dt>
+          <dd>
+            <ol>
+              <li>「Finderメニュー」-「移動」-「サーバへ接続...」（ショートカットは『command + k』）</li>
+              <li>「smb://172.24.81.240」と入力して「接続」</li>
+              <li>パスワードを聞かれたら「生年月日8桁」</li>
+            </ol>
+          </dd>
+        </dl>
+        <dl>
+          <dt>【すでにアクセス済の場合は】</dt>
+          <dd>「Finder」の左メニュー「場所」から「172.24.81.240」を選択</dd>
+        </dl>
+      </div>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

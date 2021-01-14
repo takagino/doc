@@ -1,0 +1,627 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」03_ボックスモデル | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」03_ボックスモデル</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>CSSとは？（言葉の意味、誕生の歴史・目的）</li>
+          <li>CSSの基本構造（宣言ブロック、セレクタ、プロパティ、値）</li>
+          <li>CSSの記述場所（style属性、style要素、外部CSSファイル）、link要素</li>
+          <li>絶対パスと相対パス</li>
+          <li>配色関連のプロパティ（color、background-color）</li>
+          <li>色の指定方法（RGB値、HSL値、HEXコード）</li>
+          <li>テキスト関連のプロパティ（font-weight、font-style、font-size、line-height、letter-spacing、text-align、list-style-type）</li>
+          <li>長さ・大きさの単位（px、em、%）</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">1-1. 課題の確認</h3>
+        <div class="item">
+          <ul>
+            <li><a href="assets/01/sample.pdf" target="_blank">展示会のお知らせ（PDF）</a></li>
+            <li><a href="assets/02/practice/" target="_blank">展示会のお知らせ（HTML）</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-2. 振り返りシートの記入</h3>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-3. タイピング測定</h3>
+        <p><a href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html">日本語編</a></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">1-4. GoogleChromeのインストール</h3>
+        <p><a href="https://www.google.com/chrome/browser/desktop/index.html">こちらからダウンロード</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>要素に名前をつける（id属性とclass属性）</li>
+          <li><em>ボックスモデル</em>（序盤の最重要項目）</li>
+          <li><em>要素の検証</em>（「GoogleChrome」の超絶便利機能）</li>
+          <li>ユーザーエージェントスタイルシート</li>
+          <li>要素の親子関係</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">2-1. HTMLとCSSの準備</h3>
+        <p>この単元用に新しい「index.html」と「style.css」を作ります。フォルダで整理し、link要素の書き方と相対パスに気をつけてゼロから作ってみましょう。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. 要素に名前をつける（id属性とclass属性）</h2>
+      <section class="clause">
+        <h3 class="clause__title">3-1. id属性</h3>
+        <ul class="clause__list">
+          <li>「固有名を割り当てる」</li>
+          <li>同じid名は、<em>1ページ中に1度</em>しか使えない
+            <pre class="line-numbers"><code class="language-markup">&lt;!-- HTMLの書き方 --&gt;
+&lt;h1 id="hoge"&gt;
+</code></pre>
+            <pre class="line-numbers"><code class="language-css">/* CSSの書き方 */
+h1#hoge {
+  color: #f00;
+}
+
+/* 要素名は省略できる */
+#hoge {
+  color: #f00;
+}</code></pre>
+          </li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-2. class属性</h3>
+        <ul class="clause__list">
+          <li>「種別名を割り当てる」</li>
+          <li>同じclass名を、<em>1ページ中に何度でも</em>使える
+            <pre class="line-numbers"><code class="language-markup">&lt;!-- HTMLの書き方 --&gt;
+&lt;h2 class="fuga"&gt;
+&lt;p class="fuga"&gt;
+</code></pre>
+            <pre class="line-numbers"><code class="language-css">/* CSSの書き方 */
+h2.fuga {
+  color: #0f0;
+}
+
+p.fuga {
+  color: #0f0;
+}
+
+/* 要素名は省略できる（class名が付いたすべての要素） */
+.fuga {
+  color: #0f0;
+}</code></pre>
+          </li>
+        </ul>
+        <p>※プログラムで特に意味のない名前をつけたい時、日本では「hoge」「fuga」「piyo」、海外では「foo」「bar」がよく使われる。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-3. 関連事項</h3>
+        <div class="item">
+          <dl>
+            <dt>【「id」のほうが「class」よりも優先度が高い】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;p id="hoge" class="fuga"&gt;</code></pre>
+              <pre class="line-numbers"><code class="language-css">p{
+  color: #f00;
+}
+
+#hoge {
+  color: #0f0; /* 緑が適応される */
+}
+
+.fuga {
+  color: #00f;
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【同じ優先度の場合、cssファイル内で後に書かれたものが適応される】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;!-- id名やclass名は「半角スペース」を開けることで複数指定できる --&gt;
+&lt;p id="hoge" class="fuga piyo"&gt;</code></pre>
+              <pre class="line-numbers"><code class="language-css">p{
+  color: #f00;
+}
+
+.fuga {
+  color: #0f0;
+}
+
+.piyo {
+  color: #00f; /* 青が適応される */
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【名前の付け方】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>「aaa」などの意味のない文字列は使用しない</li>
+                <li>「aka」「dai」「syou」「midashi」などの、日本語をローマ字にしただけの名前はかっこ悪いので使用しない</li>
+                <li>「red」「big」など、デザインが変わった際にややこしくなるような名前は使用しない</li>
+              </ul>
+              <ul class="clause__list">
+                <li><a href="https://qiita.com/manabuyasuda/items/dbb76ed36970bec95470">CSSのクラス名を決めるときに使うリストをつくりました</a></li>
+                <li><a href="https://codic.jp/">codic</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <p>※最近では、デザインをパーツに分け使い回す傾向にあるため、すべての名前に<em>「class属性」</em>を使うのがほとんど。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. ボックスモデル</h2>
+      <div class="clause">
+        <dl>
+          <dt>【ボックスモデルの概念】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>文書内のすべての要素は、ボックスと呼ばれる四角形の領域を生成する。</li>
+              <li>ボックスはテキストや画像などの内容領域（Content Area）を持っており、内容領域の横幅を<em>width(ウィドゥス)</em>、高さを<em>height(ハイト)</em>のプロパティで指定する。</li>
+              <li>その周辺には、<em>padding(パディング)</em>、<em>border(ボーダー)</em>、<em>margin(マージン)</em>の順に周辺領域を持つ。</li>
+            </ul>
+          </dd>
+        </dl>
+        <p><img src="https://camo.qiitausercontent.com/0c7a4f3322526905627688f9723a7b87a0af6922/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f33373930332f64363833323937662d643262332d386463302d326339642d6564643130393466363037642e706e67" alt="" width="600"></p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">4-1. Chromeデベロッパーツールで可視化する</h3>
+        <div class="item">
+          <p>デベロッパーツールはGoogleChromeに標準で搭載されているデバッグツールで、WebサイトのHTML構成や表示スピード、通信状況などを確認できる、超絶便利でWebサイト制作に欠かせないツール。</p>
+          <p>今回は、デベロッパーツールを使って「ボックスモデル」を説明しながら<a href="assets/03/trident/" target="_blank">サンプルサイト</a>を再現していきます。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【起動方法】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>ページ上の適当な場所で右クリックし「検証」</li>
+                <li>ショートカット「F12」もしくは「Ctrl + Shift + I」（Macの場合は「Option + Command + I」）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【要素の選択】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>「Elements」タブが選択されていることを確認し、調べたい要素をクリック（▶︎をクリックすると要素内を展開できる）
+                  <img src="assets/03/01.png" alt="">
+                </li>
+                <li>下図のアイコンをクリックし、Webページ上で調べたい箇所をマウスオーバーする
+                  <img src="assets/03/02.png" alt="">
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <ul class="clause__list">
+          <li>Webページは、テキストや画像などのコンテンツが何も無い部分も、必ずどれかの要素のボックスである。</li>
+          <li>Webページは、このボックスモデルのプロパティの値をそれぞれ指定することによって、大まかなレイアウトを形作っていく。</li>
+          <li>可視化をしなくても、どの要素の「width」「margin」「padding」なのかが分かるようになると、マークアップが速く綺麗に書けるようになる。</li>
+        </ul>
+        <p>※画像だけは例外的に何にも属さない余白がある。難しい概念なので詳細は後日。</p>
+      </section>
+      <div class="clause">
+        <p>サンプルサイトを再現するために、まずはHTMLを完成させます。</p>
+        <p><a href="assets/03/trident-nocss/" target="_blank">サンプルサイト（CSSなし）</a></p>
+        <dl>
+          <dt>【画像の保存】</dt>
+          <dd>
+            <ol>
+              <li>HTMLとCSSと同じ階層に、フォルダ「images」を新規作成する</li>
+              <li>サイトから、マウスでフォルダにドラッグ&ドロップする</li>
+              <li>相対パスで画像を表示する</li>
+            </ol>
+        </dl>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. user agent stylesheet（ユーザーエージェントスタイルシート）</h2>
+      <div class="clause">
+        <p>まだ何もCSSを書いていないのに要素間の余白が空いていたり、文字の大きさ太さが違うのは、ブラウザがはじめから持っているCSS<em>「user agent stylesheet」</em>が反映されているため。</p>
+        <div class="item">
+          <dl>
+            <dt>【ユーザーエージェントとは？】</dt>
+            <dd>ユーザーがWebコンテンツを利用する際に使用しているブラウザや支援技術等の総称</dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【ユーザーエージェントスタイルシートの値】</dt>
+            <dd>Chromeデベロッパーツールを使って、各要素にどんなプロパティが設定されているか確認してみる。
+              <img src="assets/03/03.png" alt="">
+            </dd>
+            <dd>ブラウザのウィンドウサイズが小さい場合
+              <img src="assets/03/04.png" alt="">
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【ユーザーエージェントスタイルシートの上書き】</dt>
+            <dd>自作のCSSで、同じ要素に同じプロパティを指定するとユーザーエージェントスタイルシートは上書きされる。
+              <pre class="line-numbers"><code class="language-css">/* 試しに上書きしてみる */
+h1 {
+  font-size: 16px;
+}</code></pre>
+            </dd>
+            <dd><img src="assets/03/05.png" alt=""></dd>
+          </dl>
+        </div>
+        <p><a href="https://coliss.com/articles/build-websites/operation/css/user-agent-stylesheets.html">各ブラウザごとのデフォルトのスタイルシート、user agent stylesheetのまとめ</a></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. width（ウィドゥス）</h2>
+      <div class="clause">
+        <p>要素の横幅を設定する。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">6-1. 単位</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  width: 100px;
+  width: 10em; /* フォントサイズの何倍か（めったに使わない） */
+  width: 100%; /* 親要素の横幅の何%か */
+  width: auto; /* 親要素の横幅に対して残りの部分を自動的に埋める（初期値） */
+}</code></pre>
+        </p>
+        <dl>
+          <dt>【初期値とは】</dt>
+          <dd>プロパティを指定しなかった際にとる値のこと。</dd>
+        </dl>
+        <p>※最近のWebサイトはウィンドウサイズによってデザインや内容が変わる<em>「レスポンシブデザイン」</em>のサイトがほとんどなので、「%」で指定することが多い。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">7. 要素の親子関係</h2>
+      <div class="clause">
+        <p>HTMLの要素は、ある要素がある要素を含み、さらにその要素が別の要素を含む、というように階層的な構造であらわされ、この関係は一般的に親要素、子要素、孫要素などと、親子関係にたとえられて表現される。</p>
+        <p><img src="https://www.scollabo.com/banban/images/tree.png" alt=""></p>
+        <ul class="clause__list">
+          <li>「li要素」の親要素は「ul要素」（「li要素」は「ul要素」の子要素であり、「body要素」の孫要素でもある）</li>
+          <li>「ul要素」の親要素は「body要素」</li>
+          <li>「body要素」の親要素は「html要素」</li>
+          <li>「html要素」の親要素は無い、強いて言えば「ブラウザそのもの」</li>
+        </ul>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">8. height（ハイト）</h2>
+      <div class="clause">
+        <p>要素の高さを設定する。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">8-1. 単位</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  height: 100px;
+  height: 10em; /* フォントサイズの何倍か（めったに使わない） */
+  height: 100%; /* 親要素の高さの何%か */
+  height: auto; /* 親要素の高さに対して残りの部分を自動的に埋める（初期値） */
+}</code></pre>
+        </p>
+        <p>※理解せぬまま「height」を指定すると、テキストなどの量が多くなった際にはみ出してしまうため、<em>今の所は指定しない</em>。（サンプルサイトも使用していない）</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">9. margin（マージン）</h2>
+      <div class="clause">
+        <p>ボックスの一番外側の余白の領域。他の要素との間の余白を指定する。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">9-1. 指定方法</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  /* 個別指定 */
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+
+  /* 上下左右すべて */
+  margin: 10px;
+
+  /* 上下 左右 */
+  margin: 10px 20px;
+
+  /* 上 左右 下 */
+  margin: 10px 20px 30px;
+
+  /* 上 右 下 左（時計回り）*/
+  margin: 10px 20px 30px 40px;
+}</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">9-2. 単位</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  margin-top: 10px;
+  margin-bottom: 2em; /* フォントサイズの何倍か */
+  margin-left: 20%; /* 親要素の横幅の何%か（上下の余白も同様） */
+  margin-right: auto; /* 親要素の横幅に対して残りの部分を自動的に埋める */
+}
+
+/*
+初期値は「margin: 0」
+-値が「0」の時は単位を省略できる
+*/</code></pre>
+        </p>
+        <p>※上下の余白は「px」か「em」、左右の余白は「%」か「auto」を使うことが多い。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">9-3. マージンの相殺</h3>
+        <p>マージンの相殺は、垂直マージン（上下のマージン）を指定した2つの要素が並んだ時に起こる。マージンの相殺が起こると、2つのマージンのうち大きい方（等しい場合はいずれか）が1つのマージンとしてみなされる。</p>
+        <p>以下3つのケースをディベロパーツールで実際に確認してみる。</p>
+        <div class="item">
+          <dl>
+            <dt>【ケース1: 親要素と最初の子要素の上マージン】</dt>
+            <dd><a href="assets/03/trident-nocss/" target="_blank">サンプルサイト（CSSなし）</a>の「body要素」と「h1要素」</dd>
+          </dl>
+          <dl>
+            <dt>【ケース2: 親要素と最後の子要素の下マージン】</dt>
+            <dd><a href="assets/03/trident-nocss/" target="_blank">サンプルサイト（CSSなし）</a>の「body要素」と最後の「p要素」</dd>
+          </dl>
+          <dl>
+            <dt>【ケース3: 上下に重なり合う2つの要素のマージン】</dt>
+            <dd><a href="assets/03/trident-nocss/" target="_blank">サンプルサイト（CSSなし）</a>の「h1要素」とその下の「p要素」など</dd>
+          </dl>
+        </div>
+        <p>※相殺が起こる理由は<em>「そのほうが簡潔に書けるから」</em>。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">10. padding（パディング）</h2>
+      <div class="clause">
+        <p>内容領域とボーダーの間にある余白の領域。要素の内側の余白を指定する。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">10-1. 指定方法</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  /* 個別指定 */
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+
+  /* 上下左右すべて */
+  padding: 10px;
+
+  /* 上下 左右 */
+  padding: 10px 20px;
+
+  /* 上 左右 下 */
+  padding: 10px 20px 30px;
+
+  /* 上 右 下 左（時計回り）*/
+  padding: 10px 20px 30px 40px;
+}</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">10-2. 単位</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  padding-top: 10px;
+  padding-bottom: 2em; /* フォントサイズの何倍か */
+  padding-left: 20%; /* 親要素の横幅の何%か（上下の余白も同様） */
+}
+
+/*
+初期値は「padding: 0」
+「padding: auto」は存在しない
+*/</code></pre>
+        </p>
+        <p>※上下の余白は「px」か「em」、左右の余白は「px」か「%」を使うことが多い。</p>
+        <dl>
+          <dt>【paddingとmarginの違い】</dt>
+          <dd>
+            <ul class="clause__list">
+              <li>内容領域とボーダーの間の余白は「padding」、要素と要素の間の余白は「margin」</li>
+              <li>「padding」には背景色が反映される</li>
+              <li>「padding」には「auto」がない</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">11. border（ボーダー）</h2>
+      <div class="clause">
+        <p>padding の外側にある領域、いわゆる枠線。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">11-1. 指定方法</h3>
+        <p>
+        <pre class="line-numbers"><code class="language-css">p{
+  border-width: 4px; /* 線の太さ */
+  border-style: solid; /* 線の種類 */
+  border-color: #ccc; /* 線の色 */
+
+  /* まとめて書く */
+  border: 4px solid #ccc;
+
+  /* 上下左右それぞれに指定する */
+  border-left: 4px solid #ccc;
+  border-right: 4px dashed #ccc;
+  border-top: 4px dotted #ccc;
+  border-bottom: 4px double #ccc;
+
+  /* より詳しく書く */
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: #ccc;
+}</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">11-2. 初期値と線の種類</h3>
+        <div class="item">
+          <ul>
+            <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/border">border -MDN-</a></li>
+            <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/border-style">border-style -MDN-</a></li>
+          </ul>
+        </div>
+        <dl>
+          <dt>【currentcolor】</dt>
+          <dd>文字と同じ色</dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">12. 練習</h2>
+      <div class="clause">
+        <p>ディベロパーツールでプロパティを調べながら、<a href="assets/03/trident/" target="_blank">サンプルサイト</a>を完成させる。</p>
+        <dl>
+          <dt>【時間が余ったら】</dt>
+          <dd><a href="assets/03/diary/" target="_blank">サンプルサイトその2</a></dd>
+        </dl>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">13. 課題</h2>
+      <div class="clause">
+        <p>前回の課題「自分の1番好きなアーティストを紹介するページ」を「width」「margin」「padding」「border」を使ってさらに装飾してみる</p>
+        <dl>
+          <dt>【提出方法】</dt>
+          <dd>
+            <ol>
+              <li>前回の課題を複製し、「width」「margin」「padding」「border」などを自由に追加する</li>
+              <li>フォルダを圧縮したzipファイルをGmailに添付し、「takagi.trident@gmail.com」に送信（件名は「WF1 氏名」）</li>
+              <li>締切：5月20日(水)17時まで</li>
+            </ol>
+          </dd>
+        </dl>
+        <p>※前回の提出時点で上記のプロパティを理解し適切に使っていた人も提出してください。（そのままでもさらに修正しても良い）</p>
+      </div>
+    </article>
+    <!-- <article class="chapter">
+      <h2 class="chapter__title">13. 要素をまとめるタグ「div」</h2>
+      <div class="clause">
+        <div class="item">
+          <p>サンプルサイトのCSSを注意深く見ると、複数の要素に同じような指定がされている箇所がいくつかある。例えば、</p>
+          <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;h1&gt;Webデザイン学科&lt;/h1&gt;
+&lt;p class="subtitle"&gt;デザインとプログラミングの力でホームページやアプリを”かたち”にする！&lt;/p&gt;</code></pre>
+          </p>
+          <p>
+          <pre class="line-numbers"><code class="language-css">h1{
+  width: 80%;
+  margin: 50px 10% 30px;
+  text-align: center;
+}
+
+p{
+  width: 80%;
+  margin: 0 10%;
+  line-height: 1.8em;
+}
+
+.subtitle{
+  margin-bottom: 50px;
+  text-align: center;
+}</code></pre>
+          </p>
+          <p>そんな時、「div要素」を使って、複数の要素を一つのグループにまとめ一括でプロパティを指定すると便利。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【div要素（divition）】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>分割・区分を意味する</li>
+                <li>div要素自体に特別な意味はなく、装飾をするために他の要素をグループ化する目的で使う</li>
+                <li>ページ内で多数使用する可能性が高いため「class名」をつけて区別しておく</li>
+              </ul>
+            </dd>
+          </dl>
+          <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;div class="header"&gt;
+  &lt;h1&gt;Webデザイン学科&lt;/h1&gt;
+  &lt;p class="subtitle"&gt;デザインとプログラミングの力でホームページやアプリを”かたち”にする！&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </p>
+          <p>
+          <pre class="line-numbers"><code class="language-css">h1{
+  margin: 50px 0 30px;
+}
+
+p{
+  margin: 0;
+  line-height: 1.8em;
+}
+
+.header{
+  width: 80%;
+  margin: 0 10%;
+  text-align: center;
+}
+
+.subtitle{
+  margin-bottom: 50px;
+}</code></pre>
+          </p>
+        </div>
+      </div>
+    </article> -->
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

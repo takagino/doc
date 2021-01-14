@@ -1,0 +1,383 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」10_コンテンツモデルとその他 | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」10_コンテンツモデルとその他</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <div class="item">
+          <ul class="clause__list">
+            <li>スマホ対応の必要性</li>
+            <li>スマホ対応の実装方法（別個のURL、レスポンシブウェブデザイン）</li>
+            <li>レスポンシブウェブデザイン（FluidLayout、FluidImage、MediaQuery、BreakPoint、Viewport）</li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【最初に】</dt>
+            <dd>
+              <ol>
+                <li>
+                  <a
+                    href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html">「タイピング測定（日本語編）」</a>、または、
+                  <a
+                    href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigonyuryoku.html">「タイピング測定（英語編）」</a>とシート記入
+                </li>
+                <li>振り返りシートの記入</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>今までのまとめ</li>
+          <li>カテゴリとコンテンツモデル</li>
+          <li>table要素</li>
+          <li>form要素</li>
+        </ul>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. 今までのまとめ</h2>
+      <div class="clause">
+        <div class="item">
+          <dl>
+            <dt>【01_HTMLとは？】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>HTMLとは？（言葉の意味、誕生の歴史・目的）</li>
+                <li>HTMLの書き方（開始タグ、終了タグ、要素）</li>
+                <li>主要な要素（h1～h6、p、ul 、ol、li）</li>
+                <li>HTMLの基本構造（DOCTYPE宣言、html、body、head、文字コード、title）</li>
+                <li>その他の要素と属性（br、a、img、属性、属性名、属性値）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【02_CSSとは？】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>CSSとは？（言葉の意味、誕生の歴史・目的）</li>
+                <li>CSSの書き方（宣言ブロック、セレクタ、プロパティ、値）</li>
+                <li>CSSの記述場所（style属性、style要素、外部CSSファイル、link要素）</li>
+                <li>絶対パスと相対パス</li>
+                <li>配色関連のプロパティ（color、background-color、RGB値、HSL値、HEXコード）</li>
+                <li>テキスト関連のプロパティ（font-weight、font-style、font-size、line-height、letter-spacing）</li>
+                <li>長さ・大きさの単位（px、em、%）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【03_ボックスモデル】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>要素に名前をつける（id属性、class属性、CSSの優先度、名前の付け方）</li>
+                <li>Chromeディベロッパーツールの使い方</li>
+                <li>ユーザーエージェントスタイルシート</li>
+                <li>ボックスモデル（width、margin、padding、border）</li>
+                <li>要素の親子関係</li>
+                <li>marginの相殺</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【04_デザインデータのマークアップ】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>AdobeXDの使い方（テキストのコピー、テキストの数値の調べ方、余白の長さの調べ方）</li>
+                <li>スタイルの継承（継承される主なプロパティ、bodyに指定すべきプロパティ）</li>
+                <li>要素をまとめるタグ「div」</li>
+                <li>その他のプロパティ（font-family、max-width、min-width、text-decoration）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【05_アウトライン】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>アウトライン・アルゴリズム（暗黙的アウトライン、明示的アウトライン、セクショニングルート）</li>
+                <li>レイアウトを区切るための要素（header、main、footer）</li>
+                <li>文書構造化のための要素（section、article、aside、nav）</li>
+                <li>子孫セレクタ</li>
+                <li>画像の代替テキスト「alt属性」</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【06_ブロックレベルとインライン】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>背景画像の表示（background-image、background-repeat、background-position、background-size）</li>
+                <li>ブロックレベル要素とインライン要素（display、block、inline、inline-brock）</li>
+                <li>主なインライン要素（img、span、small、em、strong）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【07,08_カラムレイアウト】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>カラムレイアウト（display: flex）</li>
+                <li>関連するプロパティ（flex-direction、flex-wrap、justify-content、align-items）</li>
+                <li>リセットCSS（ress.css）</li>
+                <li>説明リスト（dl、dt、dd）</li>
+                <li>その他の問題（flex: 1、vertical-align: middle）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【09_スマホ対応】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>スマホ対応の必要性</li>
+                <li>スマホ対応の実装方法（別個のURL、レスポンシブウェブデザイン）</li>
+                <li>レスポンシブウェブデザイン（FluidLayout、FluidImage、MediaQuery、BreakPoint、Viewport）</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. よくする失敗と原因</h2>
+      <div class="clause">
+        <div class="item">
+          <dl>
+            <dt>【とにかく変わらない】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>保存していない（※ファイル名の隣に●印がないかチェック）</li>
+                <li>CSSのパスが違っていて読み込まれていない</li>
+                <li>違うファイルを編集している</li>
+                <li>違うファイルをブラウザで開いている</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【CSSを書いたのに何も変わらない】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>スペルミス</li>
+                <li>classの後に「=」が無い</li>
+                <li>セレクタの指定方法を間違えている（要素名・クラス名・子孫セレクタ）</li>
+                <li>別の箇所で上書きされている</li>
+              </ul>
+            </dd>
+          </dl>
+          <p>※「要素の検証」で打ち消し線が引かれていないかチェックする</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【ぐちゃぐちゃになってしまった】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>sectionやdivなど、要素の閉じ忘れ</li>
+                <li>要素が入れ子になっている</li>
+              </ul>
+            </dd>
+          </dl>
+          <p>※「要素の検証」で構造をチェックする</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【謎の隙間が空いている】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>marginの相殺問題</li>
+                <li>ロゴが画像だったとき問題</li>
+                <li>画像の下の隙間問題</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <p><strong>こまめに保存、こまめに確認。ミスをしても慌てずに、速やかに修正できるようになること。</strong></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. カテゴリとコンテンツモデル</h2>
+      <section class="clause">
+        <h2 class="clause__title">5-1. カテゴリとは？</h2>
+        <p>
+          カテゴリとは、各要素を類似の特性を持つもの同士で分類したものを指す。HTML4.01までは、ブロックレベル要素かインライン要素かそれ以外かというシンプルな分類だったが、HTML5では要素の役割に応じて7つに分類されている。
+        </p>
+        <p><a href="https://webgoto.net/html5/">HTML5 コンテンツモデル ガイド</a></p>
+      </section>
+      <section class="clause">
+        <h2 class="clause__title">5-2. コンテンツモデルとは？</h2>
+        <p>コンテンツモデルとは、各要素（＝タグ）ごとに内包できるコンテンツを定義したルールのこと。</p>
+        <p><a href="https://yoshikawaweb.com/element/">HTML5 入れ子チートシート</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. table要素</h2>
+      <div class="clause">
+        <div class="item">
+          <p><a href="http://dic.nicovideo.jp/c/co398059">テーブルに関する要素一覧</a></p>
+        </div>
+        <dl>
+          <dt>★練習</dt>
+          <dd>
+            <ul>
+              <li>下記URLにある「サイバーセキュリティ学科AO入学選考日程」の表をマークアップし、かっこよくデザインする</li>
+              <li>
+                <a href="http://computer.trident.ac.jp/addmission/addmission_guide/ao_exam/"
+                  target="_blank">トライデントコンピュータ専門学校 入学要項AO入学</a>
+              </li>
+            </ul>
+          </dd>
+          <dd>
+            <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html lang="ja"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;table要素&lt;/title&gt;
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            border: 1px solid #000;
+            background-color: #36f;
+        }
+
+        td {
+            border: 1px solid #000;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th colspan="2" rowspan="2"&gt;選考日&lt;/th&gt;
+                &lt;th rowspan="2"&gt;受付期間&lt;/th&gt;
+                &lt;th rowspan="2"&gt;結果発送&lt;/th&gt;
+                &lt;th colspan="2"&gt;手続締切日&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th&gt;入学手続(入学金納入)&lt;/th&gt;
+                &lt;th&gt;前期学費納入&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;第1回&lt;/td&gt;
+                &lt;td&gt;9月26日(土)&lt;/td&gt;
+                &lt;td&gt;8月1日(土)～9月24日(木)&lt;/td&gt;
+                &lt;td rowspan="2"&gt;選考日翌日より1週間以内&lt;/td&gt;
+                &lt;td&gt;10月16日(金)&lt;/td&gt;
+                &lt;td rowspan="2"&gt;2021年3月1日(月)&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;第2回&lt;/td&gt;
+                &lt;td&gt;10月17日(土)&lt;/td&gt;
+                &lt;td&gt;10月1日(木)～10月15日(木)&lt;/td&gt;
+                &lt;td&gt;10月30日(金)&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+          </dd>
+        </dl>
+      </div>
+      <section class="clause">
+        <h2 class="clause__title">6-1. テーブルのレスポンシブ対応</h2>
+        <p>※まだ習っていない項目が多いので、後期にやります。</p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">7. form要素</h2>
+      <div class="clause">
+        <div class="item">
+          <p><a href="https://webliker.info/79009/">【初心者向け】0からformがわかる｜HTMLでのフォーム作成</a></p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【あわせて覚える】</dt>
+            <dd><a href="https://developer.mozilla.org/ja/docs/Web/CSS/:focus">:focus</a></dd>
+          </dl>
+        </div>
+        <dl>
+          <dt>★練習</dt>
+          <dd>
+            <ul>
+              <li>下記URLにある「申し込みフォーム」を再現する（※ラジオボタンのデザインは難しいので無視する）</li>
+              <li>
+                <a href="https://nishiyamanagaya.com/rental/">ニシヤマナガヤ</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

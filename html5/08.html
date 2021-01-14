@@ -1,0 +1,250 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」08_カラムレイアウト続き | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」08_カラムレイアウト続き</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">0. 連絡事項</h2>
+      <div class="clause">
+        <p>追加課題について</p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <div class="item">
+          <ul class="clause__list">
+            <li>カラムレイアウト（display: flex;）</li>
+            <li>関連するプロパティ（flex-direction、flex-wrap、justify-content、align-items）</li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【最初に】</dt>
+            <dd>
+              <ol>
+                <li><a
+                    href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html">「タイピング測定（日本語編）」</a>とシート記入
+                </li>
+                <li>振り返りシートは次回まとめて記入します。</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【課題の確認】</dt>
+            <dd>
+              <ul>
+                <li><a href="assets/07/BlueTranding" target="_blank">BlueTranding</a></li>
+              </ul>
+            </dd>
+          </dl>
+          <ul>
+            <li>上記の見本が正解ではない。大事なのは、</li>
+            <li>アウトラインを意識しながら、<em>「誰が見ても理解できる」</em>マークアップをすること。</li>
+            <li>「なぜこの要素でしるしをつけたか」を答えられるように、<em>「意図のある」</em>マークアップをすること。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>カラムレイアウトの続き</li>
+          <li>リセットCSS</li>
+          <li>その他もろもろ</li>
+        </ul>
+        <p><a href="assets/08/0702/" target="_blank">現時点のデータ「0702」</a></p>
+        <p><a href="assets/08/0703/" target="_blank">現時点のデータ「0703」</a></p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">2-1. HTMLとCSSの準備</h3>
+        <p>この単元用に新しい「index.html」と「style.css」を作ります。フォルダで整理し、link要素の書き方と相対パスに気をつけてゼロから作ってみましょう。</p>
+        <p>
+        <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Newslly&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-css">@charset "utf-8";</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-2. デザインデータのダウンロード</h3>
+        <p><a href="assets/08/08_sample.zip">08_sample.zip</a></p>
+        <ol>
+          <li>zipファイルを解凍し、ファルダ内のデータをHTMLファイルと同じ階層に移動させる。
+            <img src="assets/04/01.png" alt="">
+          </li>
+        </ol>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. リセットCSS</h2>
+      <div class="clause">
+        <p>リセットCSSとは、ブラウザがデフォルトで持っているCSSを打ち消すためのCSS。ブラウザ間の表示の差異がなくなり、作業効率も上がるため、実際の現場でも良く使われている。</p>
+        <p>★『reset css 2020』で検索してみる。</p>
+        <div class="item">
+          <dl>
+            <dt>【授業で使用するリセットCSS】</dt>
+            <dd><a href="https://ress-css.surge.sh/">ress.css</a></dd>
+          </dl>
+          <p>★ress.cssの中身を見てみる。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【CDNとは】</dt>
+            <dd>CDNとは「Content Delivery Network」の略。同一のコンテンツを多くの配布先、例えば多くのユーザーの端末に効率的に配布するために使われる仕組みのこと。</dd>
+          </dl>
+        </div>
+        <p><strong>※制作会社ごとに使用しているリセットCSSが違うため、どのCSSにも対応できる基礎知識が必要。</strong></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. カラムレイアウト続き</h2>
+      <div class="clause">
+        <p><a href="https://web-cheatsheet.com/css-flexbox">CSS Flexbox - エンジニアのためのWebチートシート</a></p>
+        <p>上記参考サイトの「子要素に指定するプロパティ」については少し難しいので、今の段階で完璧に理解する必要はない。ただし、以下の2点はできるようにしておくこと。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">4-1. 横並びにした画像が伸びてしまう問題</h3>
+        <dl>
+          <dt>【対処法】</dt>
+          <dd>「align-items」の値を初期値（stretch）以外に設定する</dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">4-2. 横並びにした要素を固定幅にしたい</h3>
+        <dl>
+          <dt>【対処法】</dt>
+          <dd>
+            <pre class="line-numbers"><code class="language-css">.contents {
+  display: flex;
+}
+.main {
+  flex: 1;
+}
+.sub {
+  width: 300px;
+}</code></pre>
+            <p><a
+                href="http://cly7796.net/wp/sample/implement-fixed-width-and-variable-width-side-by-side-with-flexbox/index2.html">デモページ</a>
+            </p>
+          </dd>
+        </dl>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. その他もろもろ</h2>
+      <div class="clause">
+        <div class="item">
+          <dl>
+            <dt>lang属性</dt>
+            <dd>要素が何語なのかを定義する（&lt;html lang="ja"&gt;）</dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>dl要素（description list）、dt要素（description term）、dd要素（description、difinition）</dt>
+            <dd><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/dl">dl要素 - MDN</a></dd>
+          </dl>
+        </div>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">5-1. h1要素が画像の時に高さがおかしい問題</h3>
+        <dl>
+          <dt>【対処法】</dt>
+          <dd>
+            <pre class="line-numbers"><code class="language-css">h1 {
+  line-height: 0;
+}</code></pre>
+          </dd>
+        </dl>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">5-2. 画像の下に謎の隙間ができる問題</h3>
+        <dl>
+          <dt>【対処法】</dt>
+          <dd>
+            <pre class="line-numbers"><code class="language-css">img {
+  max-width: 100%;
+  vertical-align: middle;
+}</code></pre>
+          </dd>
+        </dl>
+        <p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/vertical-align">vertical-align - MDN</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. 課題</h2>
+      <div class="clause">
+        <div class="item">
+          <p>以下のデザインデータをマークアップする。</p>
+          <p><a href="assets/08/08_kadai.zip">08_kadai.zip</a></p>
+          <dl>
+            <dt>【提出】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>フォルダ名：出席番号_名前　例）00_takagi</li>
+                <li>締め切り：7月16日(木)10時</li>
+                <li>提出先：「提出用folder ＞ 2020 ＞ 前期 ＞ WF1 ＞ HTML5基礎 ＞ 08_SimpleFood02」</li>
+              </ul>
+            </dd>
+            <dd>※XDデータはアップロードしないこと</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

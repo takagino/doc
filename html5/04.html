@@ -1,0 +1,511 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」04_デザインデータのマークアップ | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」04_デザインデータのマークアップ</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">0. 連絡事項</h2>
+      <div class="clause">
+        <p><a href="https://computer.trident.ac.jp/news/topics/2020/05/520.html">【5月20日更新】学校での対面授業、オープンキャンパス等の再開について（ 新型コロナウイルス感染症への対応）</a></p>
+        <p>7月6日（月）、7月7日（火）、8月6日（木）、8月7日（金）／授業ありの予定</p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <div class="item">
+          <ul class="clause__list">
+            <li>要素に名前をつける（id属性、class属性、CSSの優先度、名前の付け方）</li>
+            <li>ボックスモデルの概念</li>
+            <li>Chromeデベロッパーツールでの可視化</li>
+            <li>ユーザーエージェントスタイルシート</li>
+            <li>ボックスモデルを形成するプロパティ（width、margin、padding、border）</li>
+            <li>要素の親子関係、marginの相殺、marginとpaddingnの違い</li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【最初に】</dt>
+            <dd>
+              <ol>
+                <li><a href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/nihongonyuryoku.html">「タイピング測定（日本語編）」</a>とシート記入</li>
+                <li>AdobeXDのインストール</li>
+                <li>振り返りシートの記入</li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>デザインデータのマークアップ</li>
+          <li>AdobeXDの使い方（マークアップに関わる項目）</li>
+          <li>スタイルの継承</li>
+          <li>要素をまとめるタグ「div」</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">2-1. HTMLとCSSの準備</h3>
+        <p>この単元用に新しい「index.html」と「style.css」を作ります。フォルダで整理し、link要素の書き方と相対パスに気をつけてゼロから作ってみましょう。</p>
+        <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Company&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <pre class="line-numbers"><code class="language-css">@charset "utf-8";</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-2. デザインデータのダウンロード</h3>
+        <p><a href="assets/04/04_sample.zip">デザインデータ</a></p>
+        <ol>
+          <li>zipファイルを解凍し、ファルダ内のデータをHTMLファイルと同じ階層に移動させる。
+            <img src="assets/04/01.png" alt="">
+          </li>
+        </ol>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-3. 完成版の確認</h3>
+        <p><a href="assets/04/company/" target="_blank">完成版</a></p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-4. 前回までのソースコード</h3>
+        <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Company&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;h1&gt;&lt;img src="images/img_logo.png"&gt;&lt;/h1&gt;
+    &lt;img src="images/pic_mainvisual.png"&gt;
+
+    &lt;h2&gt;MY SERVICES&lt;/h2&gt;
+    &lt;p class="lead"&gt;Our Provided Features & Expertise&lt;/p&gt;
+    &lt;h3&gt;Graphics Design&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet,Stet clita kasd lorem ipsum dolor sit amet. sed diam eirmod tempor dolore.&lt;/p&gt;
+    &lt;a href="#"&gt;Know More →&lt;/a&gt;
+    &lt;h3&gt;Web Developement&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet,Stet clita kasd lorem ipsum dolor sit amet. sed diam eirmod tempor dolore.&lt;/p&gt;
+    &lt;a href="#"&gt;Know More →&lt;/a&gt;
+
+    &lt;h2&gt;TESTIMONIALS&lt;/h2&gt;
+    &lt;p class="lead"&gt;What People Says&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet,Stet clita kasd gubergren, no sea takimata sanctus est is the lorem ipsum dolor sit
+      amet. sed diam nonumy eirmod tempor invidunt ut labore et dolore is the magna aliquyam.&lt;/p&gt;
+    &lt;img src="images/pic_testimonials01.png"&gt;
+    &lt;p&gt;John Doe&lt;/p&gt;
+    &lt;p&gt;CEO, ABC Company&lt;/p&gt;
+
+    &lt;p&gt;2019 All Rights Reserved.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+              <pre class="line-numbers"><code class="language-css">@charset "utf-8";
+
+body{
+  margin: 0;
+  color: #151D41;
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 2em;
+  letter-spacing: 0;
+  background-color: #f2f2f2;
+}
+
+img{
+  max-width: 100%;
+}
+
+h1{
+  margin: 50px 0 70px;
+  text-align: center;
+}
+
+h2{
+  margin: 100px 0 15px;
+  color: #27DEBF;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+.wrapper{
+  width: 90%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.lead{
+  margin: 15px 0 50px;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.2em;
+  text-align: center;
+}</code></pre>
+        </p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. デザインデータのマークアップ</h2>
+      <section class="clause">
+        <h3 class="clause__title">3-1. マークアップを始める前に</h3>
+        <p>まずはデザインデータを眺めて、どのようにマークアップするか考える</p>
+        <ul class="clause__list">
+          <li>全体の構成は？</li>
+          <li>見出しの付け方は？</li>
+          <li>画像になる部分はどこか？（今回はこちらで準備したが、本来は自分で書き出す必要がある）</li>
+          <li>リンクになる部分はどこか？</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-2. HTMLで文書構造を作る</h3>
+        <div class="item">
+          <p>まずは文書構造がきれいに書けるように、HTMLを先に完成させます。（慣れてきたらHTMLとCSSを交互に書いていっても構いません）</p>
+          <p><a href="assets/04/company-html/" target="_blank">見本</a></p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【注意点】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>文字の大きさなどの見た目に惑わされないこと。（全体の構成と文章の意味だけを考える）</li>
+                <li>class名はまだ付けなくてもよい。</li>
+                <li>AdobeXDの操作に慣れないうちは、いつのまにかデザインを変更してしまうことが多々あるので、データを複製してバックアップをとっておくと良い。</li>
+              </ul>
+            </dd>
+        </div>
+        <dl>
+          <dt>【AdobeXDで文字をコピーする】</dt>
+          <dd>「選択ツール」で文字をクリックしても選択できるが、今回のデータは細かくグループ化されており、順番にダブルクリックしていく必要がある。</dd>
+          <dd>その場合は「文字ツール」に切り替えて文字をクリックすると、直接選択できて便利。</dd>
+          <dd>「文字ツール」で選択した文字をダブルクリックすることで内容が選択されるので、コピーをする。</dd>
+        </dl>
+        <p>※文字全体の選択が解除されてしまった場合は、「ctrl + a（Macは、command + a）」で全選択ができる。</p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-3. 関連事項</h3>
+        <div class="item">
+          <dl>
+            <dt>【リンク先がわからない場合のhref】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-markup">&lt;a href="#"&gt;See Live Damo →&lt;a&gt;</code></pre>
+            </dd>
+          </dl>
+        </div>
+      </section>
+      <div class="clause">
+        <p>HTMLが完成したら、順番にCSSを書いていきます。</p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. スタイルの継承</h2>
+      <div class="clause">
+        <p>上にある要素から順番にCSSをつけていってもページは完成するが、マークアップで重要なことは、いかに<em>早く、効率よく、わかりやすく、修正しやすく</em>CSSを書くかどうか。</p>
+        <p>デザインデータをもう一度良く見ると、見出しも本文もほぼ同じ文字色で、本文のフォントサイズもほぼ同じ大きさなのがわかる。同じ値のプロパティを要素ごとに書いていては無駄なので、スタイルが<em>「継承」</em>されるプロパティは、<em>親要素</em>に一括で書いた方が効率が良い。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">4-1. スタイルの継承とは？</h3>
+        <div class="item">
+          <p>親要素のプロパティの値が、子要素に引き継がれること。プロパティによって継承されるものとされないものに分かれる。</p>
+          <div class="item">
+            <dl>
+              <dt>【継承される主なプロパティ】</dt>
+              <dd>
+                <ul class="clause__list">
+                  <li>color</li>
+                  <li>font-size</li>
+                  <li>font-style</li>
+                  <li>font-weight</li>
+                  <li>letter-spacing</li>
+                  <li>line-height</li>
+                  <li>list-style</li>
+                  <li>text-align　など</li>
+                </ul>
+              </dd>
+            </dl>
+            <p>CSSを書くときにまずやることは、<strong>継承の概念を利用し、bodyに共通のプロパティを指定して、一番多いであろうテキストの値に合わせておくこと！</strong></p>
+          </div>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【大企業のサイトの「body」にどんなプロパティが指定してあるか？】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li><a href="https://www.apple.com/jp/">Apple</a></li>
+                <li><a href="https://www.nttdocomo.co.jp/">docomo</a></li>
+                <li><a href="https://www.au.com/">au</a></li>
+                <li><a href="https://www.softbank.jp/">Softbank</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【body要素に指定するプロパティ】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">@charset "utf-8";
+
+body{
+  margin: 0;
+  color: #151D41;
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 2em;
+  letter-spacing: 0;
+  background-color: #F2F2F2;
+}</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【font-family】</dt>
+            <dd>フォントの種類を指定する
+              <img src="assets/04/02.png" width="800" alt="">
+            </dd>
+          </dl>
+          <table>
+            <tbody>
+              <tr>
+                <th>総称ファミリ名</th>
+                <th>字体</th>
+              </tr>
+              <tr>
+                <td>serif</td>
+                <td>明朝体</td>
+              </tr>
+              <tr>
+                <td>sans-serif</td>
+                <td>ゴシック体</td>
+              </tr>
+              <tr>
+                <td>cursive</td>
+                <td>筆記体</td>
+              </tr>
+              <tr>
+                <td>serif</td>
+                <td>明朝体</td>
+              </tr>
+              <tr>
+                <td>fantasy</td>
+                <td>装飾体</td>
+              </tr>
+              <tr>
+                <td>monospace</td>
+                <td>等幅</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <div class="clause">
+        <p>ここからは徐々に完成に近づけていきます。なお、前期の授業では「綺麗さ」よりも「わかりやすさ」を重視してマークアップしていきます。</p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. 要素をまとめるタグ「div」</h2>
+      <div class="clause">
+        <div class="item">
+          <p>上にある要素から順番にCSSをつけていってもページは完成するが、マークアップで重要なことは、いかに<em>早く、効率よく、わかりやすく、修正しやすく</em>CSSを書くかどうか。</p>
+          <p><a href="assets/04/company/" target="_blank">完成版</a>をもう一度良く見ると、すべての要素の横幅がウィンドウサイズに合わせて伸縮し、ある一定の大きさ以上で固定される作りになっている。同じ値のプロパティを要素ごとに書いていては無駄なので、要素をひとつのグループにまとめ、一括で書いた方が効率が良い。</p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【div（divition）】</dt>
+            <dd>
+              <ul>
+                <li>区分・分割を意味する。</li>
+                <li>div要素自体に特別な意味はなく、要素をグループ化する目的で使う。</li>
+                <li>ページ内で多数使用する可能性が高いため「class名」をつけて区別しておく必要がある。</li>
+              </ul>
+            </dd>
+          </dl>
+          <p>
+          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Company&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!--
+    全体を &lt;div&gt; で囲む。
+    class名「wrapper」は「包むもの」という意味で、全体を囲むときによく使われる。
+    --&gt;
+    &lt;div class="wrapper"&gt;
+      &lt;h1&gt;&lt;img src="images/img_logo.png"&gt;&lt;/h1&gt;
+
+      &lt;img src="images/pic_mainvisual.png"&gt;
+        ・
+        ・
+        中略
+        ・
+        ・
+      &lt;p&gt;2019 All Rights Reserved.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <pre class="line-numbers"><code class="language-css">.wrapper{
+  width: 90%;
+  max-width: 750px;
+  margin: 0 auto;
+}</code></pre>
+          </p>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【max-width】</dt>
+            <dd>
+              <ul>
+                <li>要素の最大幅を設定する。</li>
+                <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/max-width">単位や初期値</a></li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <dt>【min-width】</dt>
+            <dd>
+              <ul>
+                <li>要素の最小幅を設定する。</li>
+                <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/min-width">単位や初期値</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <p>※ボックスモデルを可視化して、仕組みを今一度復習しておくこと。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">5-1. 関連事項</h3>
+        <div class="item">
+          <dl>
+            <dt>【画像をウィンドウ幅に合わせる】</dt>
+            <dd>
+              <pre class="line-numbers"><code class="language-css">img{
+  max-width: 100%;　/* widthの単位を%にし、100%以上は大きくならない */
+}</code></pre>
+            </dd>
+          </dl>
+          <p>※「text-align: center;」との違いを再度確認しておくこと。</p>
+        </div>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">6. 「AdobeXD」の使い方</h2>
+      <section class="clause">
+        <h3 class="clause__title">6-1. 余白の長さの調べ方</h3>
+        <ul class="clause__list">
+          <li>「選択ツール」で調べたいオブジェクトをクリックし「alt」キーを押すと、アートボードの上下左右までの長さを表示</li>
+          <li>「選択ツール」で調べたいオブジェクトをクリックし、別のオブジェクトをマウスオーバーした状態で「alt」キーを押すと、オブジェクト間の長さを表示</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">6-2. テキスト関連の数値の調べ方</h3>
+        <p><img src="assets/04/03.png" alt=""></p>
+        <dl>
+          <dt>【line-heightの計算】</dt>
+          <dd>フォントサイズが「24」、行の高さが「36」の場合、「36÷24=1.5」</dd>
+        </dl>
+        <p>※GoogleChromeのURL欄に「36/24」と入力して検索するのが早い。</p>
+      </section>
+      <div class="clause">
+        <p>ここまでの内容を踏まえ、マークアップを完成させていきます。共有画面でゆっくり進めていくので、ついて来れない場合はすぐに教えてください。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">6-3. 関連事項</h3>
+        <div class="item">
+          <dl>
+            <dt>【text-decoration】</dt>
+            <dd>
+              <ul>
+                <li>テキストの装飾的な線の表示を設定する</li>
+                <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/text-decoration">値や初期値</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </article>
+
+    <article class="chapter">
+      <h2 class="chapter__title">7. 練習</h2>
+      <div class="clause">
+        <p>もう一度、ゼロからマークアップをして、HTMLとCSSが同じになるか試してみる。</p>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">7-1. 時間があまったら</h3>
+        <div class="item">
+          <dl>
+            <dt>【「AdobeXD」での画像の書き出し】</dt>
+            <dd><a href="https://helpx.adobe.com/jp/xd/help/export-design-assets.html">デザインアセットの書き出し</a></dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【dl要素、dt要素、dd要素】</dt>
+            <dd><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/dl">&lt;dl&gt;: 説明リスト要素</a></dd>
+          </dl>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

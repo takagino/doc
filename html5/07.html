@@ -1,0 +1,199 @@
+<!doctype html>
+<html dir="ltr" lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「HTML5基礎」07_カラムレイアウト | 2020年度授業資料</title>
+  <meta name="description" content="トライデントコンピュータ専門学校Webデザイン学科講師の高木が作った授業資料">
+  <meta name="author" content="horotaka takagi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- syntax highlighter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- other css -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- self css -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+  <header class="l-header">
+    <p class="l-header__title"><a class="l-header__link" href="../index.html">2020年度授業資料</a></p>
+    <h1 class="l-header__title-sub">「HTML5基礎」07_カラムレイアウト</h1>
+  </header>
+  <main class="l-main">
+    <article class="chapter">
+      <h2 class="chapter__title">1. 前回の復習</h2>
+      <div class="clause">
+        <div class="item">
+          <ul class="clause__list">
+            <li>背景画像の表示（background-image、background-repeat、background-position、background-size）</li>
+            <li>ブロックレベル要素とインライン要素</li>
+            <li>主なインライン要素（img、span、small、em、strong）</li>
+            <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/box-sizing">box-sizing</a></li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【最初に】</dt>
+            <dd>
+              <ol>
+                <li><a
+                    href="https://manabi-gakushu.benesse.ne.jp/gakushu/typing/eigonyuryoku.html">「タイピング測定（英語編）」</a>とシート記入
+                </li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【課題の確認】</dt>
+            <dd>
+              <ul>
+                <li><a href="assets/06/HOTELIN" target="_blank">HOTELIN</a></li>
+                <li><a href="assets/06/TNFAlloy" target="_blank">TNFAlloy</a></li>
+              </ul>
+            </dd>
+          </dl>
+          <ul>
+            <li>上記の見本が正解ではない。大事なのは、</li>
+            <li>アウトラインを意識しながら、<em>「誰が見ても理解できる」</em>マークアップをすること。</li>
+            <li>「なぜこの要素でしるしをつけたか」を答えられるように、<em>「意図のある」</em>マークアップをすること。</li>
+          </ul>
+        </div>
+        <div class="item">
+          <dl>
+            <dt>【課題を踏まえて】</dt>
+            <dd>振り返りシートの記入</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">2. 今回学ぶこと</h2>
+      <div class="clause">
+        <ul class="clause__list">
+          <li>カラムレイアウト</li>
+        </ul>
+      </div>
+      <section class="clause">
+        <h3 class="clause__title">2-1. HTMLとCSSの準備</h3>
+        <p>この単元用に新しい「index.html」と「style.css」を作ります。フォルダで整理し、link要素の書き方と相対パスに気をつけてゼロから作ってみましょう。</p>
+        <p>
+        <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Newslly&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-css">@charset "utf-8";</code></pre>
+        </p>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">2-2. デザインデータのダウンロード</h3>
+        <p><a href="assets/07/07_sample.zip">07_sample.zip</a></p>
+        <ol>
+          <li>zipファイルを解凍し、ファルダ内のデータをHTMLファイルと同じ階層に移動させる。
+            <img src="assets/04/01.png" alt="">
+          </li>
+        </ol>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">3. デザインデータのマークアップ</h2>
+      <section class="clause">
+        <h3 class="clause__title">3-1. マークアップを始める前に</h3>
+        <p>まずはデザインデータを眺めて、どのようにマークアップするか考える</p>
+        <ul class="clause__list">
+          <li>全体の構成は？</li>
+          <li>見出しの付け方は？</li>
+          <li>画像になる部分はどこか？（今回はこちらで準備したが、本来は自分で書き出す必要がある）</li>
+          <li>リンクになる部分はどこか？</li>
+        </ul>
+      </section>
+      <section class="clause">
+        <h3 class="clause__title">3-2. HTMLで文書構造を作る</h3>
+        <p>まずは文書構造がきれいに書けるように、HTMLを先に完成させます。（慣れてきたらHTMLとCSSを交互に書いていっても構いません）</p>
+        <div class="item">
+          <dl>
+            <dt>【注意点】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>header要素、main要素、footer要素を使って、おおまかなレイアウトを指定すること。</li>
+                <li>アウトラインを意識すること</li>
+                <li>文字の大きさなどの見た目に惑わされないこと。（全体の構成と文章の意味だけを考える）</li>
+                <li>class名はまだ付けなくてもよい。</li>
+                <li>AdobeXDの操作に慣れないうちは、いつのまにかデザインを変更してしまうことが多々あるので、データを複製してバックアップをとっておくと良い。</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <p><a href="assets/07/html" target="_blank">HTMLのみ</a></p>
+      </section>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">4. カラムレイアウト</h2>
+      <div class="clause">
+        <div class="item">
+          <p>カラムとは「列」「欄」「段組」を意味し、Webページが垂直方向の縦位置で何列に分かれているかによって、1カラム・2カラム・3カラムと数える。</p>
+          <p>今までのデザインデータは全て1カラムだったが、今回は要素が横に並ぶ「カラムレイアウト」になっている。要素を横に並べる代表的な方法として<em>「flexbox（フレックスボックス）」</em>がある。</p>
+        </div>
+        <p><a href="https://web-cheatsheet.com/css-flexbox">CSS Flexbox - エンジニアのためのWebチートシート</a></p>
+        <p><a href="assets/07/0625" target="_blank">06/25</a></p>
+        <p><a href="assets/07/0626" target="_blank">06/26</a></p>
+      </div>
+    </article>
+    <article class="chapter">
+      <h2 class="chapter__title">5. 課題</h2>
+      <div class="clause">
+        <div class="item">
+          <p>以下のデザインデータをマークアップする。</p>
+          <p><a href="assets/07/07_kadai.zip">07_kadai.zip</a></p>
+          <dl>
+            <dt>【提出】</dt>
+            <dd>
+              <ul class="clause__list">
+                <li>フォルダ名：出席番号_名前　例）00_takagi</li>
+                <li>締め切り：7月2日(木)10時</li>
+                <li>提出先：「提出用folder ＞ 2020 ＞ 前期 ＞ WF1 ＞ HTML5基礎 ＞ 07_BlueTranding」</li>
+              </ul>
+            </dd>
+            <dd>※XDデータはアップロードしないこと</dd>
+          </dl>
+        </div>
+        <div class="item">
+          <p><a href="https://forms.gle/SaBCa3EZVeDdeoxZ6">WF1_6月状況アンケート</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="l-footer">
+    <small>Copyright &copy; hirotaka takagi. All rights reserved.</small>
+  </footer>
+
+  <!-- syntax highlighter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!--
+    <pre class="line-numbers">
+      <code class="language-markup">
+        &lt; ... &gt;
+      </code>
+    </pre>
+  -->
+  <script src="../assets/js/common.js"></script>
+</body>
+
+</html>
